@@ -1,5 +1,5 @@
 Pull this document.
 
------>Edit this line<-----
+----->Edit this line<----- What's up everyone?
 
 Fix merge conflicts by choosing which change you want to keep.
