@@ -1,0 +1,5 @@
+Pull this document.
+
+----->Edit this line<-----
+
+Fix merge conflicts by choosing which change you want to keep.
