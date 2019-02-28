@@ -1,5 +1,7 @@
 Pull this document.
 
------>Edit this line<----- Whats' up?
+
+----->Edit this line<----- Hey dude
+>>>>>>> MikeTestBranch
 
 Fix merge conflicts by choosing which change you want to keep.
