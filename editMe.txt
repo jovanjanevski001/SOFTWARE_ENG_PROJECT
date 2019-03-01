@@ -1,6 +1,6 @@
 Pull this document.
 
 
------>Edit this line<----- Hey dudes
+----->Edit this line<----- Hey dudes, Whats up!
 
 Fix merge conflicts by choosing which change you want to keep.
