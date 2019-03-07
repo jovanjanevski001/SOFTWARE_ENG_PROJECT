@@ -12,7 +12,11 @@ var itemSchema = new Schema({
     type: Number,
     required: true,
   },
-  vendor: String,
+  vendor:
+  {
+    type: String,
+    required: true
+  },
   created_at: Date,
   updated_at: Date
 });
