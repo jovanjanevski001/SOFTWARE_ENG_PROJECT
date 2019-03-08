@@ -10,7 +10,7 @@
 	<img src = "C:\Users\Ben\Documents\Semester 5\Intro to Software Engineering\SOFTWARE_ENG_PROJECT\logo-transparent.png" alt = "logo" width= "200" height= "200"/>
       </div>
       <div class="row">
-	<h1 align = "center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome Valued Customer! 	  <span style="float:right"> Your cart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+        <h1 align = "center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome Valued Customer! 	  <span style="float:right"> Your cart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h1>
 	<h4 align="center"> You may select items from below to place in your cart. </h4>
 	<div class="tableWrap">
             <table class="table table-striped table-hover">
@@ -19,10 +19,10 @@
                 <th>Cost</th>
                 <th></th>
               </tr>
-              <tr ng-repeat="listing in listings | filter: query" ng-click="showDetails($index)">
-                <td width="200">{{listing.code}}</td>
-                <td width="100">{{listing.name}}</td>
-                <td ng-click="deleteListing(listing._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
+              <tr ng-repeat="item in items | filter: query" ng-click="showDetails($index)">
+                <td width="200">{{item.name}}</td>
+                <td width="100">{{item.price}}</td>
+                <td ng-click="deleteListing(item._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
               </tr>
             </table>
           </div>
@@ -40,10 +40,10 @@
                 <th>Cost</th>
                 <th></th>
               </tr>
-              <tr ng-repeat="listing in listings | filter: query" ng-click="showDetails($index)">
-                <td width="500">{{listing.code}}</td>
-                <td width="200">{{listing.name}}</td>
-                <td ng-click="deleteListing(listing._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
+              <tr ng-repeat="item in cart | filter: query" ng-click="showDetails($index)">
+                <td width="500">{{item.name}}</td>
+                <td width="200">{{item.price}}</td>
+                <td ng-click="deleteListing(y._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
               </tr>
             </table>
           </div>
