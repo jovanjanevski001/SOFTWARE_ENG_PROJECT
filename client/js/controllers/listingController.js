@@ -1,7 +1,7 @@
-angular.module('items').controller('ListingsController', ['$scope', 'Items',
+angular.module('items').controller('ItemsController', ['$scope', 'Items',
   function($scope, Items) {
     /* Get all the listings, then bind it to the scope */
-    Listings.getAll().then(function(response) {
+    Items.getAll().then(function(response) {
       $scope.items = response.data;
     }, function(error) {
       console.log('Unable to retrieve items:', error);
