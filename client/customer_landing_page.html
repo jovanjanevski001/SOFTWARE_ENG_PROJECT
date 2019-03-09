@@ -9,7 +9,7 @@
       <div class="row" id="top">
 	<img src = "logo-transparent.png" alt = "logo" width= "200" height= "200"/>
       </div>
-      <div class="row">
+      <div class="row" ng-controller="ItemsController">
         <h1 align = "center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome Valued Customer! 	  <span style="float:right"> Your cart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h1>
 	<h4 align="center"> You may select items from below to place in your cart. </h4>
 	<div class="tableWrap">
@@ -19,15 +19,14 @@
                 <th>Cost</th>
                 <th></th>
               </tr>
-              <tr ng-repeat="item in items | filter: query" ng-click="showDetails($index)">
+              <tr ng-repeat="item in cart | filter: query" ng-click="showDetails($index)">
                 <td width="200">{{item.name}}</td>
                 <td width="100">{{item.price}}</td>
-                <td ng-click="deleteItem(item._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
+                <td ng-click="deleteItem($index, item._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
               </tr>
             </table>
           </div>
-      </div>
-      <div class="row" ng-controller="ItemsController">
+
         <div class="col-md-6">
           <div class="input-group" id="searchBar">
             <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
@@ -40,10 +39,10 @@
                 <th>Cost</th>
                 <th></th>
               </tr>
-              <tr ng-repeat="item in cart | filter: query" ng-click="showDetails($index)">
+              <tr ng-repeat="item in items | filter: query" ng-click="showDetails($index)">
                 <td width="500">{{item.name}}</td>
                 <td width="200">{{item.price}}</td>
-                <td ng-click="deleteItem(y._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
+                <td ng-click="deleteItem(item._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
               </tr>
             </table>
           </div>

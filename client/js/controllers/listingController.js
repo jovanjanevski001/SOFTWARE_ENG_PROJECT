@@ -17,14 +17,14 @@ angular.module('items').controller('ItemsController', ['$scope', 'Items',
 	 */
       var item = {
         name: $scope.newItem.name,
-        code: $scope.newItem.code,
-        address: $scope.newItem.address
+        price: $scope.newItem.price,
+        vendor: $scope.newItem.vendor
       };
 
       $scope.items.push($scope.newItem);
       $scope.newItem = {};
 
-      Items.create(item).then(function(response){$scope.newItem.name =''; $scope.newItem.code=''; $scope.newItem.address='';
+      Items.create(item).then(function(response){$scope.newItem.name =''; $scope.newItem.price=''; $scope.newItem.vendor='';
       }, function(error){
         $scope.error = 'item not saved\n' + error;
       });
@@ -33,19 +33,15 @@ angular.module('items').controller('ItemsController', ['$scope', 'Items',
     };
     /** DONE WITH addListing **/
 
-    $scope.deleteItem = function(index) {
+    $scope.deleteItem = function(index, id) {
 	   /**TODO
         Delete the article using the Listings factory. If the removal is successful,
 		navigate back to 'listing.list'. Otherwise, display the error.
        */
 
 
-      var id = $scope.items[index];
-      console.log('item '+ id._id);
 
-      Items.delete(id._id).then(function(response){console.log('Deleted')},
-      function(error){console.log('error')}
-    );
+      Items.delete(id);
       $scope.items.splice(index, 1);
 
     };

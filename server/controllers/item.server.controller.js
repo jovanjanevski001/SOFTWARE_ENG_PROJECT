@@ -74,7 +74,7 @@ exports.list = function(req, res) {
   /* Your code here */
 
   // Grabs all the listings, and sorts them in alpabetical order based on code.
-  Item.find().sort('code').exec(function(err, items) {
+  Item.find().sort('name').exec(function(err, items) {
     if(err) {
       res.status(400).send(err);
     } else {

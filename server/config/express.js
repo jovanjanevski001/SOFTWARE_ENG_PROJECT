@@ -8,7 +8,7 @@ var path = require('path'),
 
 module.exports.init = function() {
   //connect to database
-  mongoose.connect(config.db.uri);
+mongoose.connect(config.db.uri, {useMongoClient: true});
 
   //initialize app
   var app = express();
@@ -25,6 +25,7 @@ module.exports.init = function() {
   var options={index: "customer_landing_page.html"};
   app.use('/', express.static(__dirname + '/../../client', options));
 
+  app.use('/v', express.static(__dirname + '/../../client/vendor_landing_page.html'))
   /**TODO
   Use the listings router for requests to the api */
   app.use('/api/items', itemsRouter);

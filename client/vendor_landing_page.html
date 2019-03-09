@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main2.css">
+  </head>
+  <body ng-app="directoryApp">
+    <div class="container">
+      <div class="row" id="top">
+	<img src = "logo-transparent.png" alt = "logo" width= "200" height= "200"/>
+      </div>
+      <div class="row" ng-controller="ItemsController">
+        <h1 align = "center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome Valued Vendor! 	  <span style="float:right"> Your cart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h1>
+	<h4 align="center"> You may select items from below to place in your cart. </h4>
+	<div class="tableWrap">
+            <table class="table table-striped table-hover">
+              <tr>
+                <th width="200">Item</th>
+                <th>Cost</th>
+                <th></th>
+              </tr>
+              <tr ng-repeat="item in items | filter: query" ng-click="showDetails($index)">
+                <td width="200">{{item.name}}</td>
+                <td width="100">{{item.price}}</td>
+                <td ng-click="deleteItem(item._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
+              </tr>
+            </table>
+          </div>
+
+        <div class="col-md-6">
+          <!--<div class="input-group" id="searchBar">
+            <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+            <input type="text" class="form-control" placeholder="Search" ng-model="query">
+          </div>
+          <div class="tableWrapper">
+            <table class="table table-striped table-hover">
+              <tr>
+                <th width="500">Item</th>
+                <th>Cost</th>
+                <th></th>
+              </tr>
+              <tr ng-repeat="item in cart | filter: query" ng-click="showDetails($index)">
+                <td width="500">{{item.name}}</td>
+                <td width="200">{{item.price}}</td>
+                <td ng-click="deleteItem(y._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
+              </tr>
+            </table>
+          </div>-->
+          <form novalidate class="simple-form">
+            <h2>Add New Item</h2>
+            Name: <input type="text" ng-model="newItem.name" /><br />
+            Price: <input type="text" ng-model="newItem.price" /><br />
+            Vendor: <input type="text" ng-model="newItem.vendor" /><br />
+            <button class="btn btn-primary" ng-click="addItem()">Add Item</button>
+          </form>
+        </div>
+        <!--<div class="col-md-6">
+          <div class="jumbotron">
+            <h2>Detailed Information</h2>
+            <h4>{{detailedInfo.name}}</h4>
+            <p>Address: {{detailedInfo.address}}</p>
+            <p>Building Code: {{detailedInfo.code}}</p>
+          </div>
+        </div>-->
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factories/listingFactory.js"></script>
+    <script src="js/controllers/listingController.js"></script>
+  </body>
+</html>

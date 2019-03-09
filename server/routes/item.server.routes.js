@@ -11,6 +11,10 @@ router.route('/')
   .get(items.list)
   .post(items.create);
 
+  router.route('/v')
+    .get(items.list)
+    .post(items.create);
+
 
 /*
   The ':' specifies a URL parameter.
