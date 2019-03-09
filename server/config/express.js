@@ -4,11 +4,11 @@ var path = require('path'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     config = require('./config'),
-    listingsRouter = require('../routes/listings.server.routes');
+    itemsRouter = require('../routes/item.server.routes');
 
 module.exports.init = function() {
   //connect to database
-  mongoose.connect(config.db.uri);
+mongoose.connect(config.db.uri, {useMongoClient: true});
 
   //initialize app
   var app = express();
@@ -22,16 +22,18 @@ module.exports.init = function() {
 
   /**TODO
   Serve static files */
-  app.use('/', express.static(__dirname + '/../../client'));
+  var options={index: "customer_landing_page.html"};
+  app.use('/', express.static(__dirname + '/../../client', options));
 
+  app.use('/v', express.static(__dirname + '/../../client/vendor_landing_page.html'))
   /**TODO
   Use the listings router for requests to the api */
-  app.use('/api/listings', listingsRouter);
+  app.use('/api/items', itemsRouter);
 
   /**TODO
   Go to homepage for all routes not specified */
   app.all('/*', function(req, res) {
-    res.sendFile(path.resolve('client/index.html'));
+    res.sendFile(path.resolve('client/customer_landing_page.html'));
   });
 
   return app;
