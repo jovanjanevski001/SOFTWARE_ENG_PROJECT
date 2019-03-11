@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/main2.css">
+    <link rel="stylesheet" href="styles/main.css">
   </head>
   <body ng-app="directoryApp">
     <div class="container">
@@ -10,9 +10,9 @@
 	<img src = "logo-transparent.png" alt = "logo" width= "200" height= "200"/>
       </div>
       <div class="row" ng-controller="ItemsController">
-        <h1 align = "center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome Valued Vendor! 	  <span style="float:right"> Your cart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h1>
-	<h4 align="center"> You may select items from below to place in your cart. </h4>
-	<div class="tableWrap">
+        <h1 align = "center">Welcome Vendor!</h1>
+	<h4 align="center"> You may add items to the inventory and search the current inventory below. </h4>
+	<!--<div class="tableWrapped">
             <table class="table table-striped table-hover">
               <tr>
                 <th width="200">Item</th>
@@ -25,27 +25,30 @@
                 <td ng-click="deleteItem($index, item._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
               </tr>
             </table>
-          </div>
-
+          </div>--->
+	<p> &nbsp; </p>
+	<h3 align="center">Current Inventory</h3>
         <div class="col-md-6">
-          <!--<div class="input-group" id="searchBar">
+          <div class="input-group" id="searchBar2">
             <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
             <input type="text" class="form-control" placeholder="Search" ng-model="query">
           </div>
-          <div class="tableWrapper">
+          <div class="tableWrapped">
             <table class="table table-striped table-hover">
               <tr>
-                <th width="500">Item</th>
-                <th>Cost</th>
+                <th width="300">Item</th>
+		<th width="300">Vendor</th>
+                <th>Price</th>
                 <th></th>
               </tr>
-              <tr ng-repeat="item in cart | filter: query" ng-click="showDetails($index)">
-                <td width="500">{{item.name}}</td>
-                <td width="200">{{item.price}}</td>
+              <tr ng-repeat="item in items | filter: query" ng-click="showDetails($index)">
+                <td width="300">{{item.name}}</td>
+		<td width="300">{{item.vendor}}</td>
+                <td>{{item.price}}</td>
                 <td ng-click="deleteItem(y._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
               </tr>
             </table>
-          </div>-->
+          </div>
           <form novalidate class="simple-form">
             <h2>Add New Item</h2>
             Name: <input type="text" ng-model="newItem.name" /><br />
