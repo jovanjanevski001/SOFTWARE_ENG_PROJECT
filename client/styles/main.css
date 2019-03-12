@@ -2,6 +2,10 @@
   margin: 0px 200px 15px 200px;
   width: 700px;
 }
+#searchBar2 {
+  margin: 0px 200px 15px 400px;
+  width: 700px;
+}
 
 .tableWrapper {
   max-height: 400px;
@@ -15,6 +19,13 @@
   overflow: auto;
   width: 350px;
   margin: 0px 0px 0px 950px;
+}
+
+.tableWrapped {
+  max-height: 200px;
+  overflow: auto;
+  width: 700px;
+  margin: 0px 200px 0px 400px;
 }
 
 #top {
@@ -34,7 +45,12 @@ h1 {
 
 h2 {
 	position: relative;
-	margin: 0px, 100px, 0px, 100000px;
+	margin: -10px, 100px, 0px, 100000px;
+}
+h3 {
+	position: relative;
+	text-decoration: underline;
+	margin: 20px 0px 10px 400px
 }
 
 h4 {
