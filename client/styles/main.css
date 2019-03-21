@@ -1,6 +1,6 @@
 #searchBar {
-  margin: 0px 200px 15px 200px;
-  width: 700px;
+  margin: 0px 200px 15px -310px;
+  width: 600px;
 }
 #searchBar2 {
   margin: 0px 200px 15px 400px;
@@ -10,8 +10,8 @@
 .tableWrapper {
   max-height: 400px;
   overflow: auto;
-  width: 700px;
-  margin: 0px 200px 0px 200px;
+  width: 600px;
+  margin: 0px 200px 0px -310px;
 }
 
 .tableWrap {
@@ -26,6 +26,11 @@
   overflow: auto;
   width: 700px;
   margin: 0px 200px 0px 400px;
+}
+
+.jumbotron {
+  width: 325px;
+  margin: 0px 0px 0px -100px;
 }
 
 #top {
