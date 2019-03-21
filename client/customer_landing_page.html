@@ -15,20 +15,24 @@
 	<div class="tableWrap">
             <table class="table table-striped table-hover">
               <tr>
-                <th width="125">Item</th>
-		<th width="125">Vendor</th>
+                <th width="200">Item</th>
                 <th>Price</th>
                 <th></th>
               </tr>
               <tr ng-repeat="item in cart | filter: query" ng-click="showDetails($index)">
-                <td width="125">{{item.name}}</td>
-		<td width="125">{{item.vendor}}</td>
-                <td width="50">{{item.price}}</td>
+                <td width="200">{{item.name}}</td>
+                <td width="100">{{item.price}}</td>
                 <td ng-click="deleteItem($index, item._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
               </tr>
             </table>
           </div>
-
+	<div class="col-md-6">
+          <div class="jumbotron">
+            <h2>Item: {{item.name}}</h2>
+            <h2>Vendor: {{item.vendor}}</h2>
+            <h2>Cost: {{item.price}}</h2>
+          </div>
+        </div>
         <div class="col-md-6">
           <div class="input-group" id="searchBar">
             <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
@@ -37,15 +41,13 @@
           <div class="tableWrapper">
             <table class="table table-striped table-hover">
               <tr>
-                <th width="300">Item</th>
-		<th width="300">Vendor</th>
+                <th width="450">Item</th>
                 <th>Price</th>
                 <th></th>
               </tr>
               <tr ng-repeat="item in items | filter: query" ng-click="showDetails($index)">
-                <td width="300">{{item.name}}</td>
-		<td width="300">{{item.vendor}}</td>
-                <td width="100">${{item.price}}</td>
+                <td width="450">{{item.name}}</td>
+                <td width="150">${{item.price}}</td>
                 <td ng-click="deleteItem($index, item._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
               </tr>
             </table>
