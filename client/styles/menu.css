@@ -1,0 +1,49 @@
+#top {
+  width: 1538px;
+  background-color: orange;
+  position: relative;
+  height: 200px;
+  margin: 0px 0px 0px -200px;
+}
+#bottom {
+  position: absolute;
+  top: 630px;
+  left: 500px;
+}
+
+img {
+	margin: 0px 0px 0px 175px;
+}
+
+button {
+  padding: 10px 18px;
+  transition: 0.3s;
+  font-size: 17px;
+  margin: 10px 0px 0px 0px;
+  border: solid;
+}
+
+.tab {
+  margin: -57px 0px 0px 650px;
+  background-color: #f1f1f1;
+}
+
+.tab button {
+  background-color: #f1f1f1;
+  float: left;
+  border: solid;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 18px;
+  transition: 0.3s;
+  font-size: 17px;
+  margin: 0px 0px 0px 0px;
+}
+
+.tableWrapper {
+  display: inline-block;
+  max-height: 400px;
+  overflow: auto;
+  width: 600px;
+  margin: 0px 0px 0px 200px;
+}

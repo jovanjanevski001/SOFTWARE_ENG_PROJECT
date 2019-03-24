@@ -8,7 +8,7 @@
 }
 
 .tableWrapper {
-  max-height: 400px;
+  max-height: 310px;
   overflow: auto;
   width: 600px;
   margin: 0px 200px 0px -310px;
@@ -22,7 +22,7 @@
 }
 
 .tableWrapped {
-  max-height: 200px;
+  max-height: 295px;
   overflow: auto;
   width: 700px;
   margin: 0px 200px 0px 400px;
@@ -30,7 +30,13 @@
 
 .jumbotron {
   width: 325px;
-  margin: 0px 0px 0px -100px;
+  height: 300px;
+  margin: 50px 0px 0px -100px;
+}
+
+.simple-form {
+  position: absolute;
+  top: 150px;
 }
 
 #top {
