@@ -26,6 +26,8 @@ mongoose.connect(config.db.uri, {useMongoClient: true});
   app.use('/', express.static(__dirname + '/../../client', options));
 
   app.use('/v', express.static(__dirname + '/../../client/vendor_landing_page.html'))
+
+  app.use('/h', express.static(__dirname + '/../../client/home_landing_page.html'))
   /**TODO
   Use the listings router for requests to the api */
   app.use('/api/items', itemsRouter);
