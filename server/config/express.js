@@ -4,7 +4,8 @@ var path = require('path'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     config = require('./config'),
-    itemsRouter = require('../routes/item.server.routes');
+    itemsRouter = require('../routes/item.server.routes'),
+    cookieParser = require('cookie-parser');
 
 module.exports.init = function() {
   //connect to database
@@ -19,7 +20,7 @@ mongoose.connect(config.db.uri, {useMongoClient: true});
   //body parsing middleware
   app.use(bodyParser.json());
 
-
+  app.use(cookieParser());
   /**TODO
   Serve static files */
   var options={index: "customer_landing_page.html"};
