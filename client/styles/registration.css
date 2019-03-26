@@ -22,7 +22,7 @@ input[type=checkbox] {
   display:inline-block;
   position: absolute;
   left: 700px;
-  top: 360px;
+  top: 310px;
 }
 
 body {
@@ -37,7 +37,7 @@ h4 {
   display:inline-block;
   position:absolute;
   left: 720px;
-  top:350px;
+  top:300px;
 }
 
 button {
