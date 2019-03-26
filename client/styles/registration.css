@@ -1,0 +1,60 @@
+.container {
+  background-color: white;
+  position: relative;
+  width: 900px;
+}
+
+form.simple-form {
+  border:
+}
+
+input[type=text] {
+  width: 325px;
+  padding: 8px;
+  display:inline-block;
+  font-size: 20px;
+  position:relative;
+  float:right;
+  right:200px;
+}
+
+input[type=checkbox] {
+  display:inline-block;
+  position: absolute;
+  left: 700px;
+  top: 360px;
+}
+
+body {
+  background-color:orange;
+}
+
+h2 {
+  display:inline-block;
+}
+
+h4 {
+  display:inline-block;
+  position:absolute;
+  left: 720px;
+  top:350px;
+}
+
+button {
+  position:relative;
+  left:350px;
+  height:50px;
+  width:200px;
+}
+
+#top {
+  width: 1520px;
+  background-color:
+  position: relative;
+  margin: 0px 0px 0px 0px;
+}
+
+img {
+	margin: 0px 0px 0px 175px;
+}
+
