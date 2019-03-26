@@ -1,20 +1,11 @@
 /* Import mongoose and define any variables needed to create the schema */
 var mongoose = require('mongoose'),
-    Item = require('../models/item.server.model.js'),
-    User = require('../models/user.server.model.js'),
     Schema = mongoose.Schema;
 
 /* Create your schema */
 var orderSchema = new Schema({
-  user: {
-    type: User,
-    required: true
-  },
-  order: {
-    type: [Item],
-    required: true,
-    default: undefined
-  },
+  useremail: {type: String, required: true},
+  order: [{type: String, rquired: true, unique: true}],
 
   created_at: Date,
   updated_at: Date
