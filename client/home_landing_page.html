@@ -29,7 +29,6 @@
               <tr ng-repeat="item in items | filter: query" ng-click="showDetails($index)">
                 <td width="450">{{item.name}}</td>
                 <td width="150">${{item.price}}</td>
-                <td ng-click="deleteItem($index, item._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
               </tr>
             </table>
           </div>
