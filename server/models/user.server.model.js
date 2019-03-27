@@ -7,10 +7,10 @@ var mongoose = require('mongoose'),
 var userSchema = new Schema({
   /* your code here */
 
-  userName: {type: String, required: true},
+  username: {type: String, required: true},
   email: {type: String, required: true, unique: true},
-  //userType:{type: String, required: true},
-  password:	{type: String, required: true},
+  userType:{type: String, required: true},
+  pw:	{type: String, required: true},
 
   created_at: Date,
   updated_at: Date
