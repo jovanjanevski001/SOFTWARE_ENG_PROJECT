@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// Bring in User Model
+// User model
 let User = require('../models/user.server.model');
 
 // Register Form
