@@ -6,7 +6,7 @@ let User = require('../models/user.server.model');
 
 // Register Form
 router.get('/cr', function(req, res){
-  res.render('cr');
+  res.render('customer_register_page');
 });
 
 // Register Process
@@ -27,7 +27,7 @@ router.post('/cr', function(req, res){
   let errors = req.validationErrors();
 
   if(errors){
-    res.render('cr', {
+    res.render('customer_register_page', {
       errors:errors
     });
   } else {
@@ -50,8 +50,8 @@ router.post('/cr', function(req, res){
             console.log(err);
             return;
           } else {
-            req.flash('success','You are now a registered user and can log in!');
-            res.redirect('/cl');
+            //req.flash('success','You are now a registered user and can log in!');
+            //res.redirect('/cl');
           }
         });
       });
