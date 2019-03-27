@@ -6,6 +6,9 @@ var path = require('path'),
     config = require('./config'),
     itemsRouter = require('../routes/item.server.routes');
 
+let user = require('./routes/user.server.route.js');
+app.use('/user.server.route.js', user);
+
 module.exports.init = function() {
   //connect to database
 mongoose.connect(config.db.uri, {useMongoClient: true});
