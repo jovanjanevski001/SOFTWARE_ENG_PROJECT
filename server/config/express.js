@@ -4,7 +4,6 @@ var path = require('path'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     config = require('./config'),
-    itemsRouter = require('../routes/item.server.routes'),
 	usersRouter = require('../routes/user.server.routes');
 
 	
@@ -42,7 +41,7 @@ mongoose.connect(config.db.uri, {useMongoClient: true});
   app.use('/cl', express.static(__dirname + '/../../client/customer_login_page.html'))
   /**TODO
   Use the listings router for requests to the api */
-  app.use('/api/items', itemsRouter)
+  //app.use('/api/items', itemsRouter)
   app.use ('/api/users', usersRouter)
 
   /**TODO
