@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // User model
-let User = require('../models/user.server.model');
+var user = require('../models/user.server.model');
 
 // Register Form
 router.get('/api/user', function(req, res){
@@ -31,7 +31,7 @@ router.post('/api/user', function(req, res){
       errors:errors
     });
   } else {
-    let newUser = new User({
+    let newUser = new user({
       username:username,
       email:email,
 	 // userType:userType,
@@ -50,7 +50,7 @@ router.post('/api/user', function(req, res){
             console.log(err);
             return;
           } else {
-            //req.flash('success','You are now a registered user and can log in!');
+            req.flash('success','You are now a registered user and can log in!');
             //res.redirect('/cl');
           }
         });
@@ -58,5 +58,9 @@ router.post('/api/user', function(req, res){
     });
   }
 });
+
+
+router.param('userId', user.userByID);
+
 
 module.exports = router;
