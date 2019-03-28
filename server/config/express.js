@@ -4,7 +4,7 @@ var path = require('path'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     config = require('./config'),
-    itemsRouter = require('../routes/item.server.routes'),
+    itemsRouter = require('../routes/item.server.routes');
 	//usersRouter= require('../routes/user.server.route');
 
 module.exports.init = function() {
