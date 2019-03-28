@@ -12,6 +12,11 @@ router.route('/')
   .post(users.create);
 
 
+router.route('/:userId');
+
+router.param('userId', users.userByID);
+
+
 module.exports = router;
 
 
