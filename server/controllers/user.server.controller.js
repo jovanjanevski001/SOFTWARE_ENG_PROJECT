@@ -28,26 +28,6 @@ exports.create = function(req, res) {
   });
 };
 
-/* Update a listing */
-exports.update = function(req, res) {
-  var user = req.user;
-
-  // change the contents of listing to the req's body contents
-  user.name = req.body.name;
-  user.price= req.body.price;
-  user.vendor= req.body.vendor;
-
-  /* Save the listing */
-  user.save(function(err) {
-    if(err) {
-      console.log(err);
-      res.status(400).send(err);
-    } else {
-      res.json(user);
-    }
-  });
-};
-
 /*
   Middleware: find a listing by its ID, then pass it to the next request handler.
   HINT: Find the listing using a mongoose query,
