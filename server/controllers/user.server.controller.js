@@ -27,20 +27,3 @@ exports.create = function(req, res) {
     }
   });
 };
-
-/*
-  Middleware: find a listing by its ID, then pass it to the next request handler.
-  HINT: Find the listing using a mongoose query,
-        bind it to the request object as the property 'listing',
-        then finally call next
- */
-exports.userByID = function(req, res, next, id) {
-  User.findById(id).exec(function(err, user) {
-    if(err) {
-      res.status(400).send(err);
-    } else {
-      req.user = user;
-      next();
-    }
-  });
-};
