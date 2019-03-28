@@ -28,6 +28,27 @@ exports.create = function(req, res) {
   });
 };
 
+
+exports.update = function(req, res) {
+  var user = req.user;
+
+  // change the contents of listing to the req's body contents
+  user.userName = req.body.userName;
+  user.email= req.body.email;
+  user.password= req.body.password;
+
+  /* Save the listing */
+  user.save(function(err) {
+    if(err) {
+      console.log(err);
+      res.status(400).send(err);
+    } else {
+      res.json(user);
+    }
+  });
+};
+
+
 exports.userByID = function(req, res, next, id) {
   User.findById(id).exec(function(err, user) {
     if(err) {

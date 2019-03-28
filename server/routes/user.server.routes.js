@@ -12,7 +12,8 @@ router.route('/')
   .post(users.create);
 
 
-router.route('/:userId');
+router.route('/:userId')
+	.put(users.update);
 
 router.param('userId', users.userByID);
 
