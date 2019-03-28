@@ -12,6 +12,8 @@ var userSchema = new Schema({
   //userType:{type: String, required: true},
   password:	{type: String, required: true},
 
+  salt: String,
+
   created_at: Date,
   updated_at: Date
 });

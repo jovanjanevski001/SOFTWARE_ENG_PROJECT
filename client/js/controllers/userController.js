@@ -1,5 +1,5 @@
-angular.module('user').controller('UserController', ['$scope', 'User',
-  function($scope, User) {
+angular.module('user').controller('UserController', ['$scope', 'user',
+  function($scope, user) {
     /* Get all the listings, then bind it to the scope */
     Items.getAll().then(function(response) {
       $scope.user = response.data;
