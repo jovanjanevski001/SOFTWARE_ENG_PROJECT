@@ -6,6 +6,7 @@ var path = require('path'),
     config = require('./config'),
     itemsRouter = require('../routes/item.server.routes');
 	
+var usersRouter = require('../routes/user.server.routes');
 	
 module.exports.init = function() {
   //connect to database
