@@ -9,6 +9,7 @@ var users = require('../controllers/user.server.controller.js'),
  */
 
 router.route('/')
+  .get(users.list)
   .post(users.create);
 
 
