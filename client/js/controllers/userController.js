@@ -31,7 +31,7 @@ angular.module('users').controller('UserController', ['$scope', 'Users',
 
     }
     //else {
-      function(response){$scope.newUser.password=''; $scope.newUser.password2='';}
+     // function(response){$scope.newUser.password=''; $scope.newUser.password2='';}
     //}
     };
   }
