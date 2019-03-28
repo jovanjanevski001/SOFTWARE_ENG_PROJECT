@@ -17,7 +17,8 @@ router.route('/')
   The ':' specifies a URL parameter.
  */
 router.route('/:userId')
-  .get(users.read);
+  .get(users.read)
+  .put(users.update);
 
 /*
   The 'router.param' method allows us to specify middleware we would like to use to handle
