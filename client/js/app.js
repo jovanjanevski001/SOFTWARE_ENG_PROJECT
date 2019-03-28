@@ -1,5 +1,5 @@
 /* register the modules the application depends upon here*/
-angular.module('users', []);
+angular.module('items', []);
 
 /* register the application and inject all the necessary dependencies */
-var app = angular.module('directoryApp', ['users']);
+var app = angular.module('directoryApp', ['items']);
