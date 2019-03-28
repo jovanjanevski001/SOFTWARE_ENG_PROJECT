@@ -40,7 +40,7 @@ mongoose.connect(config.db.uri, {useMongoClient: true});
   app.use('/cl', express.static(__dirname + '/../../client/customer_login_page.html'))
   /**TODO
   Use the listings router for requests to the api */
-  app.use('/api/items', itemsRouter)
+  app.use('/api/items', itemsRouter),
   app.use('/api/users', usersRouter);
 
   /**TODO
