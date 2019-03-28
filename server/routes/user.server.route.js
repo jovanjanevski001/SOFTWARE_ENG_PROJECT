@@ -5,12 +5,12 @@ const router = express.Router();
 var user = require('../models/user.server.model');
 
 // Register Form
-router.get('/api/user', function(req, res){
+router.get('/cr', function(req, res){
   res.render('customer_register_page');
 });
 
 // Register Process
-router.post('/api/user', function(req, res){
+router.post('cr', function(req, res){
   var userName = req.body.userName;
   var email = req.body.email;
   //var userType = req.body.userType;

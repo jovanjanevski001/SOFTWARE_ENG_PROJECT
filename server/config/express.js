@@ -41,7 +41,7 @@ mongoose.connect(config.db.uri, {useMongoClient: true});
   /**TODO
   Use the listings router for requests to the api */
   app.use('/api/items', itemsRouter);
-  app.use('/api/user', usersRouter); 
+  app.use('/cr', usersRouter); 
 
   /**TODO
   Go to homepage for all routes not specified */

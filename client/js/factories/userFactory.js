@@ -5,7 +5,7 @@ angular.module('user', []).factory('User', function($http) {
     },
 
 	create: function(user) {
-	  return $http.post('/api/user', user);
+	  return $http.post('/cr', user);
     }
 
   };
