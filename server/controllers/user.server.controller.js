@@ -28,13 +28,4 @@ exports.create = function(req, res) {
   });
 };
 
-exports.userByID = function(req, res, next, id) {
-  User.findById(id).exec(function(err, user) {
-    if(err) {
-      res.status(400).send(err);
-    } else {
-      req.user = user;
-      next();
-    }
-  });
-};
+
