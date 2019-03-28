@@ -12,14 +12,14 @@ angular.module('users').controller('UserController', ['$scope', 'Users',
 	  *Save the article using the Listings factory. If the object is successfully
 	  saved redirect back to the list page. Otherwise, display the error
 	 */
-      if($scope.newUser.password == $scope.newUser.password2){
+      //if($scope.newUser.password == $scope.newUser.password2){
 
       var user = {
         username: $scope.newUser.username,
         email: $scope.newUser.email,
         //userType: 'customer',
         password: $scope.newUser.password
-      };
+     // };
 
 	  //$scope.users.push($scope.newUser);
 	  $scope.newUser = {};
@@ -30,9 +30,9 @@ angular.module('users').controller('UserController', ['$scope', 'Users',
       });
 
     }
-    else {
+    //else {
       function(response){$scope.newUser.password=''; $scope.newUser.password2='';}
-    }
+    //}
     };
   }
 ]);
