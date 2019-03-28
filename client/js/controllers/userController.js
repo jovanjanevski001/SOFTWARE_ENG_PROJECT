@@ -21,7 +21,7 @@ angular.module('users').controller('UserController', ['$scope', 'Users',
         password: $scope.newUser.password
       };
 
-	  $scope.users.push($scope.newUser);
+	  //$scope.users.push($scope.newUser);
 	  $scope.newUser = {};
 
       Users.create(user).then(function(response){$scope.newUser.userName =''; $scope.newUser.email=''; $scope.newUser.password=''; $scope.newUser.password2='';
