@@ -1,5 +1,5 @@
 /* Dependencies */
-var users = require('../controllers/item.server.controller.js'),
+var users = require('../controllers/user.server.controller.js'),
     express = require('express'),
     router = express.Router();
 
