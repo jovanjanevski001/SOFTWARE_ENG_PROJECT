@@ -1,7 +1,7 @@
-angular.module('user').controller('UserController', ['$scope', 'user',
-  function($scope, user) {
+angular.module('users').controller('UserController', ['$scope', 'Users',
+  function($scope, Users) {
     /* Get all the listings, then bind it to the scope */
-    Items.getAll().then(function(response) {
+    User.getAll().then(function(response) {
       $scope.user = response.data;
     }, function(error) {
       console.log('Unable to retrieve users:', error);

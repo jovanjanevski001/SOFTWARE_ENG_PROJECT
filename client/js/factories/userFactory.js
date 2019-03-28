@@ -1,11 +1,11 @@
-angular.module('user', []).factory('User', function($http) {
+angular.module('users', []).factory('Users', function($http) {
   var methods = {
     getAll: function() {
-      return $http.get('/api/user');
+      return $http.get('/api/users');
     },
 
 	create: function(user) {
-	  return $http.post('/cr', user);
+	  return $http.post('/api/users', user);
     }
 
   };
