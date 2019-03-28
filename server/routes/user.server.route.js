@@ -50,8 +50,6 @@ router.post('/api/user', function(req, res){
             console.log(err);
             return;
           } else {
-            req.flash('success','You are now a registered user and can log in!');
-            //res.redirect('/cl');
           }
         });
       });

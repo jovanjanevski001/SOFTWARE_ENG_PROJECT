@@ -17,8 +17,8 @@ angular.module('user').controller('UserController', ['$scope', 'User',
       var user = {
         username: $scope.newUser.username,
         email: $scope.newUser.email,
-        userType: 'customer',
-        pw: $scope.newUser.password
+        //userType: 'customer',
+        password: $scope.newUser.password
       };
 		
 	  $scope.newUser = {};
