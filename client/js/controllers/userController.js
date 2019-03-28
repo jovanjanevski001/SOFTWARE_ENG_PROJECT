@@ -15,7 +15,7 @@ angular.module('users').controller('UserController', ['$scope', 'Users',
       //if($scope.newUser.password == $scope.newUser.password2){
 
       var user = {
-        username: $scope.newUser.username,
+        userName: $scope.newUser.userName
         email: $scope.newUser.email,
         //userType: 'customer',
         password: $scope.newUser.password
