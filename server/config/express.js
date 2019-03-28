@@ -4,8 +4,8 @@ var path = require('path'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     config = require('./config'),
-	usersRouter = require('../routes/user.server.routes');
-
+    itemsRouter = require('../routes/item.server.routes'),
+    itemsRouter = require('../routes/user.server.routes');
 	
 	
 module.exports.init = function() {
@@ -41,8 +41,8 @@ mongoose.connect(config.db.uri, {useMongoClient: true});
   app.use('/cl', express.static(__dirname + '/../../client/customer_login_page.html'))
   /**TODO
   Use the listings router for requests to the api */
-  //app.use('/api/items', itemsRouter)
-  app.use ('/api/users', usersRouter)
+  app.use('/api/items', itemsRouter)
+  
 
   /**TODO
   Go to homepage for all routes not specified */
