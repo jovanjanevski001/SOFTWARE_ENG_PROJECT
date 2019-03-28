@@ -4,20 +4,6 @@ var users = require('../models/user.server.model');
 const express = require('express');
 const router = express.Router();
 
-router.route('/')
-  .get(users.list)
-  .post(users.create);
-
-
-/*
-  The ':' specifies a URL parameter.
- */
-router.route('/:userId')
-  .get(users.read)
-  .put(users.update)
-  .delete(users.delete);
-
-
 
 // Register Form
 router.get('/cr', function(req, res){
@@ -71,9 +57,6 @@ router.post('cr', function(req, res){
     });
   }
 });
-
-
-router.param('userId', users.userByID);
 
 
 module.exports = router;
