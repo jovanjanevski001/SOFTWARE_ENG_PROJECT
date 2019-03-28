@@ -18,7 +18,6 @@ router.route('/')
  */
 router.route('/:userId')
   .get(users.read)
-  .put(users.update);
 
 /*
   The 'router.param' method allows us to specify middleware we would like to use to handle
