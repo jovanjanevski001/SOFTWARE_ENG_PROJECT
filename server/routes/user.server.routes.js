@@ -9,13 +9,18 @@ var users = require('../controllers/user.server.controller.js'),
  */
 
 router.route('/')
+  .get(users.list)
   .post(users.create);
 
 
 /*
   The ':' specifies a URL parameter.
  */
-router.route('/:userId');
+router.route('/:userId')
+  .get(users.read)
+  .put(users.update)
+  .delete(users.delete);
+
 /*
   The 'router.param' method allows us to specify middleware we would like to use to handle
   requests with a parameter.
@@ -32,6 +37,7 @@ router.route('/:userId');
 router.param('userId', users.userByID);
 
 module.exports = router;
+
 
 
 

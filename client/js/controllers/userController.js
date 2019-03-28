@@ -35,6 +35,17 @@ angular.module('users').controller('UserController', ['$scope', 'Users',
     }
     };
 
+    $scope.deleteUser = function(index, id) {
+	   /**TODO
+        Delete the article using the Listings factory. If the removal is successful,
+		navigate back to 'listing.list'. Otherwise, display the error.
+       */
+
+
+
+      Users.delete(id);
+      $scope.users.splice(index, 1);
+
     };
   }
 ]);
