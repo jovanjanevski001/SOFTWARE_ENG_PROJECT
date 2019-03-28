@@ -19,7 +19,7 @@ angular.module('users').controller('UserController', ['$scope', 'Users',
         email: $scope.newUser.email,
         //userType: 'customer',
         password: $scope.newUser.password
-     // };
+      };
 
 	  $scope.users.push($scope.newUser);
 	  $scope.newUser = {};
