@@ -13,7 +13,9 @@ angular.module('users').controller('UserController', ['$scope', 'Users',
 	  saved redirect back to the list page. Otherwise, display the error
 	 */
       //if($scope.newUser.password == $scope.newUser.password2){
-
+	  
+	  console.log("ERROR");
+	  
       var user = {
         userName: $scope.newUser.userName
         email: $scope.newUser.email,
