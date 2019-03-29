@@ -24,8 +24,7 @@ angular.module('users').controller('UserController', ['$scope', 'Users',
 	  $scope.users.push($scope.newUser);
 	  $scope.newUser = {};
 
-      Users.create(user).then(function(response){$scope.newUser.userName =''; $scope.newUser.email=''; $scope.newUser.password=''; $scope.newUser.password2='';
-      }, function(error){
+      Users.create(user).then(function(response){$scope.newUser.userName =''; $scope.newUser.email=''; $scope.newUser.password=''; $scope.newUser.password2='';}, function(error){
         $scope.error = 'user not registered\n' + error;
       });
 
