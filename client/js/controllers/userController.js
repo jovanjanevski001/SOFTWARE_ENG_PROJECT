@@ -12,7 +12,10 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
 	  *Save the article using the Listings factory. If the object is successfully
 	  saved redirect back to the list page. Otherwise, display the error
 	 */
-   if($scope.newUser.password===$scope.newUser.password2){
+   var check=$scope.newUser.password;
+   var check2=$scope.newUser.password2;
+
+   if(check===check2){
 
       var user = {
         username: $scope.newUser.username,
@@ -20,10 +23,10 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
         userType: 'customer',
         pw: $scope.newUser.password
       };
-
+      $scope.users.push($scope.user);
       $scope.newUser = {};
 
-      Users.create(user).then(function(response){$scope.newUser.userName =''; $scope.newUser.email=''; $scope.newUser.password=''; $scope.newUser.password2='';
+      Users.create(user).then(function(response){$scope.newUser.username =''; $scope.newUser.email=''; $scope.newUser.password=''; $scope.newUser.password2='';
       }, function(error){
         $scope.error = 'user not registered\n' + error;
       });

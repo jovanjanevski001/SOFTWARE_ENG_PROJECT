@@ -1,17 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcryptjs');
+var customers=require('../controllers/customers.server.controller.js')
 
 // User model
-let User = require('../models/user.server.model.js');
+//let User = require('../models/user.server.model.js');
 
 // Register Form
-router.get('/cr', function(req, res){
-  res.render('customer_register_page');
-});
+router.route('/')
+  .post(customers.create)
+  .get(customers.list);
 
+router.route('/:customerId')
+  .get(customers.read)
+  .put(customers.update)
+  .delete(customers.delete);
+
+router.param('customerId', customers.customerByID);
 // Register Process
-router.post('/cr', function(req, res){
+/*router.post('/cr', function(req, res){
   var userName = req.body.userName;
   var email = req.body.email;
   //var userType = req.body.userType;
@@ -25,7 +31,7 @@ router.post('/cr', function(req, res){
   req.checkBody('password', 'Password is required').notEmpty();
   req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
-  let errors = req.validationErrors();
+  //let errors = req.validationErrors();
 
   if(errors){
     res.render('customer_register_page', {
@@ -58,6 +64,6 @@ router.post('/cr', function(req, res){
       });
     });
   }
-});
+}*/
 
 module.exports = router;

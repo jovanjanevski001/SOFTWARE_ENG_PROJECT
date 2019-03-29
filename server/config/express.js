@@ -4,8 +4,8 @@ var path = require('path'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     config = require('./config'),
-    itemsRouter = require('../routes/item.server.routes'),
-    usersRouter= require('../routes/user.server.routes');
+    itemsRouter = require('../routes/item.server.routes.js'),
+    usersRouter= require('../routes/user.server.routes.js');
 
 module.exports.init = function() {
   //connect to database
