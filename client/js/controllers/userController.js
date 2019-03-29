@@ -1,4 +1,4 @@
-angular.module('users').controller('UserController', ['$scope', 'Users',
+angular.module('users').controller('UsersController', ['$scope', 'Users',
   function($scope, Users) {
     /* Get all the listings, then bind it to the scope */
     User.getAll().then(function(response) {
