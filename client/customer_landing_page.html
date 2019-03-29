@@ -27,10 +27,10 @@
             </table>
           </div>
 	<div class="col-md-6">
-          <div class="jumbotron">
-            <h2>Item: {{item.name}}</h2>
-            <h2>Vendor: {{item.vendor}}</h2>
-            <h2>Cost: {{item.price}}</h2>
+          <div ng-if="detailedInfo !== undefined" class="jumbotron">
+            <h2>Item: {{detailedInfo.name}}</h2>
+            <h2>Vendor: {{detailedInfo.vendor}}</h2>
+            <h2>Cost: ${{detailedInfo.price}}</h2>
           </div>
         </div>
         <div class="col-md-6">
@@ -52,23 +52,7 @@
               </tr>
             </table>
           </div>
-
-          <!--<form novalidate class="simple-form">
-            <h2>Add New Listing</h2>
-            Code: <input type="text" ng-model="newListing.code" /><br />
-            Name: <input type="text" ng-model="newListing.name" /><br />
-            Address: <input type="text" ng-model="newListing.address" /><br />
-            <button class="btn btn-primary" ng-click="addListing()">Add Listing</button>
-          </form>-->
         </div>
-        <!--<div class="col-md-6">
-          <div class="jumbotron">
-            <h2>Detailed Information</h2>
-            <h4>{{detailedInfo.name}}</h4>
-            <p>Address: {{detailedInfo.address}}</p>
-            <p>Building Code: {{detailedInfo.code}}</p>
-          </div>
-        </div>-->
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
