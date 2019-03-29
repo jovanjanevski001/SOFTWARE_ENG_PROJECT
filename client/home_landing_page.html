@@ -34,11 +34,17 @@
             </table>
           </div>
 	<div id="buttonz">	
-	<button id="signin" type="button" style="display: inline">Sign In</button>  
-	<button type="button" style="display: block">Create Account</button>
-	<button type="button">Order as Guest</button>
+	<form action='/../../cl'>
+          <button class="button" style="display: inline" onClick = "openTab(event, 'Sign In')">Sign In</button>
+	</form>	  
+	<form action='/../../cr'>
+	  <button class="button" style="display: block">Create Account</button>
+	</form>
+	<form action='/../../c'>
+	  <button class="button">Order as Guest</button>
+	</form>
 	</div>  
-      <h3 align = "center" id = "bottom">Are you a vendor? If so, <button type="button">Sign In</button> or <button type="button">Create Account</button></h3>
+      <h3 align = "center" id = "bottom" style="display: inline">Are you a vendor? If so, <form action='/../../vl' style="display: inline"><button class="button">Sign In</button> </form> or <form action='/../../vr' style="display: inline"><button class="button">Create Account</button></form></h3>
 	</div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
