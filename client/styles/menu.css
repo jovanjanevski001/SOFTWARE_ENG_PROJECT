@@ -11,6 +11,11 @@
   left: 500px;
 }
 
+#buttonz {
+  position: absolute;
+  top: 400px;
+}
+
 img {
 	margin: 0px 0px 0px 175px;
 }
@@ -42,8 +47,8 @@ button {
 
 .tableWrapper {
   display: inline-block;
-  max-height: 400px;
+  max-height: 270px;
   overflow: auto;
   width: 600px;
-  margin: 0px 0px 0px 200px;
+  margin: 0px 0px 0px 300px;
 }
