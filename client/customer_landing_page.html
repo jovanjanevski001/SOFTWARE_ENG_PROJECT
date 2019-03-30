@@ -22,7 +22,7 @@
               <tr ng-repeat="item in cart | filter: query" ng-click="showDetails($index)">
                 <td width="200">{{item.name}}</td>
                 <td width="100">{{item.price}}</td>
-                <td ng-click="deleteItem($index, item._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
+                <td ng-click="removeFromCart($index, item)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
               </tr>
             </table>
           </div>
@@ -48,7 +48,7 @@
               <tr ng-repeat="item in items | filter: query" ng-click="showDetails($index)">
                 <td width="450">{{item.name}}</td>
                 <td width="150">${{item.price}}</td>
-                <td ng-click="deleteItem($index, item._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
+                <td ng-click="addToCart($index, item)"><span style="color: green;" class="glyphicon glyphicon-plus"></span></td>
               </tr>
             </table>
           </div>
@@ -61,5 +61,7 @@
     <script src="js/app.js"></script>
     <script src="js/factories/listingFactory.js"></script>
     <script src="js/controllers/listingController.js"></script>
+    <script src="js/factories/orderFactory.js"></script>
+    <script src="js/factories/orderController.js"></script>
   </body>
 </html>

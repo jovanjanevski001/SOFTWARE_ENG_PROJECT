@@ -32,13 +32,17 @@ angular.module('items').controller('ItemsController', ['$scope', 'Items',
 
     };
     /** DONE WITH addListing **/
+    $scope.addToCart = function(index, item) {
+      $scope.cart.push(item);
+      $scope.items.splice(index, 1);
+    };
+
+    $scope.removeFromCart=function(index,item){
+      $scope.cart.splice(index, 1);
+      $scope.items.push(item);
+    };
 
     $scope.deleteItem = function(index, id) {
-	   /**TODO
-        Delete the article using the Listings factory. If the removal is successful,
-		navigate back to 'listing.list'. Otherwise, display the error.
-       */
-
 
 
       Items.delete(id);
@@ -52,9 +56,5 @@ angular.module('items').controller('ItemsController', ['$scope', 'Items',
       $scope.detailedInfo = $scope.items[index];
     };
 
-    $scope.addToCart = function(index) {
-      /** TODO Cart function
-       */
-    }
   }
 ]);
