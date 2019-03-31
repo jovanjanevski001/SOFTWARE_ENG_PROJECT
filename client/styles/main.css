@@ -1,6 +1,8 @@
 #searchBar {
   margin: 0px 200px 15px -310px;
   width: 600px;
+  position: absolute;
+  top: 5px;
 }
 #searchBar2 {
   margin: 0px 200px 15px 400px;
@@ -8,17 +10,22 @@
 }
 
 .tableWrapper {
-  max-height: 310px;
+  position: absolute;
+  max-height: 280px;
   overflow: auto;
   width: 600px;
   margin: 0px 200px 0px -310px;
+  top: 45px;
+  
 }
 
 .tableWrap {
-  max-height: 400px;
+  max-height: 300px;
   overflow: auto;
   width: 350px;
   margin: 0px 0px 0px 950px;
+  position: absolute;
+  top: 300px;
 }
 
 .tableWrapped {
@@ -29,8 +36,9 @@
 }
 
 .jumbotron {
+  position: relative;
   width: 325px;
-  height: 300px;
+  height: 200px;
   margin: 50px 0px 0px -100px;
   background-color: orange;
 }
@@ -67,4 +75,28 @@ h3 {
 
 h4 {
 	position: relative;
+}
+
+button {
+  padding: 10px 18px;
+  transition: 0.3s;
+  font-size: 17px;
+  margin: 10px 0px 0px 0px;
+  border: solid;
+}
+
+#cancel {
+  background-color: OrangeRed;
+  position: absolute;
+  top: 640px;
+}
+
+#checkout {
+  background-color: green;
+  position: absolute;
+  top: 640px;
+}
+
+#itemAdd {
+  
 }

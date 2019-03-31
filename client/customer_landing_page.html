@@ -21,16 +21,16 @@
               </tr>
               <tr ng-repeat="item in cart | filter: query" ng-click="showDetails($index)">
                 <td width="200">{{item.name}}</td>
-                <td width="100">{{item.price}}</td>
+                <td width="100">${{item.price}}</td>
                 <td ng-click="removeFromCart($index, item)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
               </tr>
             </table>
           </div>
 	<div class="col-md-6">
           <div ng-if="detailedInfo !== undefined" class="jumbotron">
-            <h2>Item: {{detailedInfo.name}}</h2>
-            <h2>Vendor: {{detailedInfo.vendor}}</h2>
-            <h2>Cost: ${{detailedInfo.price}}</h2>
+            <h4><b>Item:</b> {{detailedInfo.name}}</h4>
+            <h4><b>Vendor:</b> {{detailedInfo.vendor}}</h4>
+            <h4><b>Cost:</b> ${{detailedInfo.price}}</h4>
           </div>
         </div>
         <div class="col-md-6">
@@ -54,6 +54,13 @@
           </div>
         </div>
       </div>
+	<p>&nbsp;</p>
+	<form action='/../../'>
+	  <button class="button" style="display: inline" onClick = "openTab(event, 'Cancel Order')" id="cancel">Cancel Order</button>
+	</form> 
+	<!--<form action='/../../'> Will eventually link to checkout page-->
+	  <button class="button" style="display: inline; right: 175px" onClick = "openTab(event, 'Checkout')" id="checkout">Checkout</button>
+	<!--</form>-->
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
