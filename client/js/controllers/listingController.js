@@ -1,20 +1,20 @@
-angular.module('items').controller('ItemsController', ['$scope', 'Items',
+angular.module('items').controller('ItemsController', ['$scope', 'Items', 'Orders',
   function($scope, Items) {
     /* Get all the listings, then bind it to the scope */
-    Items.getAll().then(function(response) {
+    Items.getAll().then(function (response) {
       $scope.items = response.data;
-    }, function(error) {
+    }, function (error) {
       console.log('Unable to retrieve items:', error);
     });
 
     $scope.detailedInfo = undefined;
     $scope.cart = [];
 
-    $scope.addItem = function() {
-	  /**TODO
-	  *Save the article using the Listings factory. If the object is successfully
-	  saved redirect back to the list page. Otherwise, display the error
-	 */
+    $scope.addItem = function () {
+      /**TODO
+       *Save the article using the Listings factory. If the object is successfully
+       saved redirect back to the list page. Otherwise, display the error
+       */
       var item = {
         name: $scope.newItem.name,
         price: $scope.newItem.price,
@@ -32,17 +32,17 @@ angular.module('items').controller('ItemsController', ['$scope', 'Items',
 
     };
     /** DONE WITH addListing **/
-    $scope.addToCart = function(index, item) {
+    $scope.addToCart = function (index, item) {
       $scope.cart.push(item);
       $scope.items.splice(index, 1);
     };
 
-    $scope.removeFromCart=function(index,item){
+    $scope.removeFromCart = function (index, item) {
       $scope.cart.splice(index, 1);
       $scope.items.push(item);
     };
 
-    $scope.deleteItem = function(index, id) {
+    $scope.deleteItem = function (index, id) {
 
 
       Items.delete(id);
@@ -52,9 +52,28 @@ angular.module('items').controller('ItemsController', ['$scope', 'Items',
 
     /** DONE WITH deleteListing **/
 
-    $scope.showDetails = function(index) {
+    $scope.showDetails = function (index) {
       $scope.detailedInfo = $scope.items[index];
     };
 
-  }
+
+    $scope.checkout = function () {
+      var order = {
+        useremail: undefined,
+        order: $scope.cart
+      };
+      Orders.create(order).then(function (error) {
+        $scope.error = 'order not saved\n' + error;
+      });
+
+      for (let i = 0; i < $scope.cart.length; i++) {
+        Items.delete($scope.cart[i]._id).then(function (response) {
+          $scope.cart = [];
+        }, function (error) {
+          $scope.error = 'item not deleted\n' + error;
+        });
+      }
+    };
+
+}
 ]);

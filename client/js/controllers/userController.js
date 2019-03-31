@@ -33,7 +33,7 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
 
     }
     else {
-      function(response){$scope.newUser.password=''; $scope.newUser.password2='';}
+      Users.then(function(response){$scope.newUser.password=''; $scope.newUser.password2='';});
     }
     };
     /** DONE WITH addListing **/
