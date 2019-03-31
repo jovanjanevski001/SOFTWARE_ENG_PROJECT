@@ -1,4 +1,4 @@
-angular.module('items').controller('ItemsController', ['$scope', 'Items', 'Orders',
+angular.module('items').controller('ItemsController', ['$scope', 'Items',
   function($scope, Items) {
     /* Get all the listings, then bind it to the scope */
     Items.getAll().then(function (response) {
@@ -62,7 +62,7 @@ angular.module('items').controller('ItemsController', ['$scope', 'Items', 'Order
         useremail: undefined,
         order: $scope.cart
       };
-      Orders.create(order).then(function (error) {
+      Items.createOrder(order).then(function (error) {
         $scope.error = 'order not saved\n' + error;
       });
 
