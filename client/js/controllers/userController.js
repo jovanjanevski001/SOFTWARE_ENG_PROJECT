@@ -12,9 +12,10 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$l
    var check2=$scope.newUser.password2;
    var app={};
 
-   Auth.getInfo().then(function(data){
+   /*Auth.getInfo().then(function(data){
      console.log('hi');
-   });
+   });*/
+
    if(check===check2){
 
       var user = {
