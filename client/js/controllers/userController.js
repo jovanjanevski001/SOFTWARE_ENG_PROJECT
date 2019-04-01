@@ -1,5 +1,5 @@
-angular.module('users').controller('UsersController', ['$scope', 'Users', 'Auth',
-  function($scope, Users, Auth) {
+angular.module('users').controller('UsersController', ['$scope', '$timeout', '$location', 'Users', 'Auth',
+  function($scope, $timeout, $location, Users, Auth) {
     /* Get all the listings, then bind it to the scope */
     Users.getAll().then(function(response) {
       $scope.users = response.data;
@@ -10,7 +10,11 @@ angular.module('users').controller('UsersController', ['$scope', 'Users', 'Auth'
     $scope.addUser = function() {
    var check=$scope.newUser.password;
    var check2=$scope.newUser.password2;
+   var app={};
 
+   Auth.getInfo().then(function(data){
+     console.log('hi');
+   });
    if(check===check2){
 
       var user = {
@@ -50,11 +54,30 @@ angular.module('users').controller('UsersController', ['$scope', 'Users', 'Auth'
       };
 
 
-      Auth.login(loginData);
+      Auth.login(loginData).then(function(data){
+        if(data.data.success){
+          app.loading=false;
+          app.successMsg= data.data.message +'...Redirecting';
+
+          $timeout(function(){
+            $location.path('/c');
+          }, 2000);
+        }
+      });
     };
 
     $scope.logout=function(){
       Auth.logout();
+      $location.path('/logout');
+      $timeout(function(){
+        $location.path('/');
+      }, 2000);
+    };
+
+    $scope.getInfo=function(){
+      Auth.getInfo().then(function(data){
+        console.log(data);
+      });
     };
 
 

@@ -139,3 +139,17 @@ exports.validate= function(req, res){
     }
   });
 };
+
+exports.returnToken= function(req, res){
+  var token= req.body.token || req.body.query || req.headers['x-access-token'];
+  if (token) {
+    jwt.verify(token, secret, function(err, decoded){
+      if(err){
+        res.json({success: false, message: 'Token invalid'});
+      } else {
+        req.decoded= decoded;
+        res.send(req.decoded);
+      }
+    });
+  }
+};

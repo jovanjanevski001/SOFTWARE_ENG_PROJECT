@@ -21,6 +21,9 @@ router.route('/:customerId')
 router.route('/login')
     .post(customers.validate);
 
+router.route('/user')
+    .post(customers.returnToken);
+
 router.param('customerId', customers.customerByID);
 // Register Process
 /*router.post('/cr', function(req, res){

@@ -9,6 +9,10 @@
       <div class="row" id="top">
 	<img src = "logo-transparent.png" alt = "logo" width= "200" height= "200"/>
       </div>
+    <div class="container" ng-controller="UsersController">
+      <li><a href="/" ng-click="logout()">Logout</a></li>
+      <li ng-click="getInfo()">CHECK</li>
+    </div>
       <div class="row" ng-controller="ItemsController">
         <h1 align = "center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome Valued Customer! 	  <span style="float:right"> Your cart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h1>
 	<h4 align="center"> You may select items from below to place in your cart. </h4>
@@ -68,7 +72,7 @@
     <script src="js/app.js"></script>
     <script src="js/factories/listingFactory.js"></script>
     <script src="js/controllers/listingController.js"></script>
-    <!--<script src="js/factories/orderFactory.js"></script>
-    <script src="js/factories/orderController.js"></script>-->
+    <script src="js/factories/userFactory.js"></script>
+    <script src="js/controllers/userController.js"></script>
   </body>
 </html>

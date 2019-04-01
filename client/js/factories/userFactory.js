@@ -38,7 +38,18 @@ angular.module('users', []).factory('Users', function($http) {
       }
     };
 
-    return authorization
+    authorization.getInfo=function(){
+      var token=AuthToken.getToken();
+      if(token){
+        return $http.post('/api/users/user');
+        }
+        else{
+          return {message:'user has no token'};
+        }
+      };
+
+
+    return authorization;
 })
 
 .factory('AuthToken', function($window) {
@@ -57,4 +68,18 @@ angular.module('users', []).factory('Users', function($http) {
     return $window.localStorage.getItem('token');
   };
   return authToken;
+})
+
+.factory('AuthInterception', function(AuthToken){
+  var authInterception={};
+
+  authInterception.request=function(config){
+    var token = AuthToken.getToken();
+    
+    if(token){
+      config.headers['x-access-token']=token;
+    }
+    return config;
+  };
+  return authInterception;
 });
