@@ -7,16 +7,19 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$l
       console.log('Unable to retrieve users:', error);
     });
 
+    $scope.isLoggedIn=false;
+    if(Auth.getInfo().success)
+    {$scope.isLoggedIn=true;}
+    console.log($scope.isLoggedIn);
+
     $scope.addUser = function() {
    var check=$scope.newUser.password;
    var check2=$scope.newUser.password2;
    var app={};
 
-   $scope.isLoggedIn=false;
-   if(Auth.isLoggedIn()){isLoggedIn=true;}
-   /*Auth.getInfo().then(function(data){
-     console.log('hi');
-   });*/
+
+
+
 
    if(check===check2){
 
@@ -79,6 +82,7 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$l
 
     $scope.getInfo=function(){
       Auth.getInfo().then(function(data){
+
         console.log(data);
       });
     };

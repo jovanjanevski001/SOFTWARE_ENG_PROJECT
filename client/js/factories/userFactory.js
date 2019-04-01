@@ -75,7 +75,7 @@ angular.module('users', []).factory('Users', function($http) {
 
   authInterception.request=function(config){
     var token = AuthToken.getToken();
-    
+
     if(token){
       config.headers['x-access-token']=token;
     }
