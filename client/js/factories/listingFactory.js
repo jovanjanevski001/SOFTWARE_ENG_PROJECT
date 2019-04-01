@@ -14,6 +14,9 @@ angular.module('items', []).factory('Items', function($http) {
        */
 		return $http.delete('/api/items/'+ id);
 
+  },
+    createOrder: function(order){
+      return $http.post('/api/orders/'+order);
     }
   };
 

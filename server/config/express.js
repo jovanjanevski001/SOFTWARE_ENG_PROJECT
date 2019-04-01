@@ -5,7 +5,7 @@ var path = require('path'),
     bodyParser = require('body-parser'),
     config = require('./config'),
     itemsRouter = require('../routes/item.server.routes.js'),
-    usersRouter= require('../routes/user.server.routes.js');
+    usersRouter= require('../routes/customer.server.routes.js');
 
 module.exports.init = function() {
   //connect to database

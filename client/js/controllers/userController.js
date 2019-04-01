@@ -1,5 +1,5 @@
-angular.module('users').controller('UsersController', ['$scope', 'Users',
-  function($scope, Users) {
+angular.module('users').controller('UsersController', ['$scope', 'Users', 'Auth',
+  function($scope, Users, Auth) {
     /* Get all the listings, then bind it to the scope */
     Users.getAll().then(function(response) {
       $scope.users = response.data;
@@ -8,10 +8,6 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
     });
 
     $scope.addUser = function() {
-	  /**TODO
-	  *Save the article using the Listings factory. If the object is successfully
-	  saved redirect back to the list page. Otherwise, display the error
-	 */
    var check=$scope.newUser.password;
    var check2=$scope.newUser.password2;
 
@@ -36,7 +32,31 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
       Users.then(function(response){$scope.newUser.password=''; $scope.newUser.password2='';});
     }
     };
-    /** DONE WITH addListing **/
+
+
+//quick check to see if they're logged in.
+    if(Auth.isLoggedIn())
+    {
+      console.log('Success: user is logged in.');
+    }
+    else{
+      console.log('Failure: user not logged in.');
+    }
+
+    $scope.customerLogin=function(){
+      var loginData={
+        username:$scope.login.username,
+        pw:$scope.login.password
+      };
+
+
+      Auth.login(loginData);
+    };
+
+    $scope.logout=function(){
+      Auth.logout();
+    };
+
 
   }
 ]);

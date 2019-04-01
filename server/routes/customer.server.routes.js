@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
-var customers=require('../controllers/customers.server.controller.js')
+var customers=require('../controllers/customers.server.controller.js');
+
+
+
 
 // User model
 //let User = require('../models/user.server.model.js');
@@ -14,6 +17,9 @@ router.route('/:customerId')
   .get(customers.read)
   .put(customers.update)
   .delete(customers.delete);
+
+router.route('/login')
+    .post(customers.validate);
 
 router.param('customerId', customers.customerByID);
 // Register Process

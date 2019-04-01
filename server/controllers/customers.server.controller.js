@@ -1,5 +1,7 @@
 /* Dependencies */
 var mongoose = require('mongoose'),
+    jwt= require('jsonwebtoken'),
+    secret='ryangoslingdrive',
     Customer = require('../models/user.server.model.js');
     const bcrypt = require('bcryptjs');
 
@@ -112,6 +114,28 @@ exports.customerByID = function(req, res, next, id) {
     } else {
       req.customer = customer;
       next();
+    }
+  });
+};
+
+exports.validate= function(req, res){
+  Customer.findOne({username: req.body.username}).select('username email pw').exec(function(err,user){
+    if(err) throw err;
+
+    if(!user){
+      res.json({success: false, message: 'Could not find user'});
+    } else if(user) {
+      if(req.body.pw){
+        var validPassword= user.pw==req.body.pw;
+      } else{
+        res.json({success:false, message: 'No password provided'});
+      }
+      if(!validPassword){
+        res.json({success:false, message: 'Incorrect password'});
+      } else {
+        var token=jwt.sign({ username: user.username, email: user.email }, secret, {expiresIn: '30m'} );
+        res.json({success:true, message: 'Login successful!', token: token});
+      }
     }
   });
 };
