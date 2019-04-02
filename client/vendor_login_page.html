@@ -8,14 +8,14 @@
 	<div class="row" id="top">
 	<img src = "logo-transparent.png" alt = "logo" width= "200" height= "200"/>
       </div>
-    <div class="container">
+    <div class="container" ng-controller="UsersController">
 	<h1 align="center">Sign in to your Account</h1>
 	<p>&nbsp;</p>
 	<form novalidate class="simple-form">
-	    <h2>&nbsp;Email</h2><input type="text" ng-model="newCustomer.email"/><br/>
-	    <h2>&nbsp;Password</h2><input type="text" ngmodel="newCustomer.password"/><br/>
+	    <h2>&nbsp;Username</h2><input type="text" ng-model="login.username"/><br/>
+	    <h2>&nbsp;Password</h2><input type="text" ng-model="login.password"/><br/>
 	    <p>&nbsp;</p>
-            <button class="btn btn-primary" ng-click="addCustomer()">Sign In</button>
+            <button class="btn btn-primary" ng-click="vendorLogin()">Sign In</button>
 	    <p>&nbsp;</p>
 	    <p>&nbsp;</p>
 	    <p>&nbsp;</p>
@@ -28,7 +28,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/factories/listingFactory.js"></script>
-    <script src="js/controllers/listingController.js"></script>
+    <script src="js/factories/userFactory.js"></script>
+    <script src="js/controllers/userController.js"></script>
   </body>
 </html>

@@ -19,7 +19,7 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$w
 
 
 
-  $scope.addUser = function() {
+  $scope.addCustomer = function() {
     var check=$scope.newUser.password;
     var check2=$scope.newUser.password2;
 
@@ -38,12 +38,40 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$w
       }, function(error){
         $scope.error = 'user not registered\n' + error;
       });
-
+        $window.location.href='/cl';
     }
     else {
       Users.then(function(response){$scope.newUser.password=''; $scope.newUser.password2='';});
     }
     };
+
+    $scope.addVendor = function() {
+      var check=$scope.newUser.password;
+      var check2=$scope.newUser.password2;
+
+     if(check===check2){
+
+        var user = {
+          username: $scope.newUser.username,
+          email: $scope.newUser.email,
+          userType: 'vendor',
+          pw: $scope.newUser.password
+        };
+        $scope.users.push($scope.user);
+        $scope.newUser = {};
+
+        Users.create(user).then(function(response){$scope.newUser.username =''; $scope.newUser.email=''; $scope.newUser.password=''; $scope.newUser.password2='';
+        }, function(error){
+          $scope.error = 'user not registered\n' + error;
+        });
+
+        $window.location.href='/vl';
+
+      }
+      else {
+        Users.then(function(response){$scope.newUser.password=''; $scope.newUser.password2='';});
+      }
+      };
 
 
 //quick check to see if they're logged in.
@@ -58,6 +86,7 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$w
     $scope.customerLogin=function(){
       var loginData={
         username:$scope.login.username,
+        userType:'customer',
         pw:$scope.login.password
       };
 
@@ -70,6 +99,27 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$w
 
           $timeout(function(){
             $window.location.href='/c';
+          }, 2000);
+        }
+      });
+    };
+
+    $scope.vendorLogin=function(){
+      var loginData={
+        username:$scope.login.username,
+        userType:'vendor',
+        pw:$scope.login.password
+      };
+
+
+      Auth.login(loginData).then(function(data){
+        if(data.data.success){
+          app.loading=false;
+          app.successMsg= data.data.message +'...Redirecting';
+
+
+          $timeout(function(){
+            $window.location.href='/v';
           }, 2000);
         }
       });

@@ -1,11 +1,18 @@
-angular.module('items').controller('ItemsController', ['$scope', 'Items',
-  function($scope, Items) {
+angular.module('items').controller('ItemsController', ['$scope', 'Items', 'Auth',
+  function($scope, Items, Auth) {
     /* Get all the listings, then bind it to the scope */
     Items.getAll().then(function (response) {
       $scope.items = response.data;
     }, function (error) {
       console.log('Unable to retrieve items:', error);
     });
+
+    if(Auth.isLoggedIn()){
+      Auth.getInfo().then(function(data){
+        $scope.isLoggedIn=!data.data.failure;
+        $scope.username=data.data.username;
+      });
+    }
 
     $scope.detailedInfo = undefined;
     $scope.cart = [];
@@ -18,7 +25,7 @@ angular.module('items').controller('ItemsController', ['$scope', 'Items',
       var item = {
         name: $scope.newItem.name,
         price: $scope.newItem.price,
-        vendor: $scope.newItem.vendor
+        vendor: $scope.username
       };
 
       $scope.items.push($scope.newItem);

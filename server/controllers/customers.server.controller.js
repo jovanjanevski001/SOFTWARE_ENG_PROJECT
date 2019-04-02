@@ -125,18 +125,23 @@ exports.validate= function(req, res){
     if(!user){
       res.json({success: false, message: 'Could not find user'});
     } else if(user) {
-      if(req.body.pw){
-        var validPassword= user.pw==req.body.pw;
-      } else{
-        res.json({success:false, message: 'No password provided'});
-      }
-      if(!validPassword){
-        res.json({success:false, message: 'Incorrect password'});
+      if(user.userType!==req.body.userType)
+      {
+        res.json({success:false, message: 'Wrong login type'});
       } else {
-        var token=jwt.sign({ username: user.username, userType: user.userType, email: user.email }, secret, {expiresIn: '30m'} );
-        res.json({success:true, message: 'Login successful!', token: token});
-      }
+        if(req.body.pw){
+          var validPassword= user.pw==req.body.pw;
+        } else{
+          res.json({success:false, message: 'No password provided'});
+        }
+        if(!validPassword){
+          res.json({success:false, message: 'Incorrect password'});
+        } else {
+          var token=jwt.sign({ username: user.username, userType: user.userType, email: user.email }, secret, {expiresIn: '30m'} );
+          res.json({success:true, message: 'Login successful!', token: token});
+        }
     }
+  }
   });
 };
 
