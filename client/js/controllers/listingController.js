@@ -65,7 +65,11 @@ angular.module('items').controller('ItemsController', ['$scope', 'Items', 'Auth'
       $scope.detailedInfo = $scope.items[index];
     };
 
-
+    $scope.deleteItem=function(index, id)
+    {
+      $scope.items.splice(index,1);
+      Items.delete(id);
+    }
     $scope.checkout = function () {
       var order = {
         useremail: undefined,
