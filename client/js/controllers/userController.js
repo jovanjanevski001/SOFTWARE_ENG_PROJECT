@@ -1,5 +1,5 @@
-angular.module('users').controller('UsersController', ['$scope', '$timeout', '$location', 'Users', 'Auth',
-  function($scope, $timeout, $location, Users, Auth) {
+angular.module('users').controller('UsersController', ['$scope', '$timeout', '$window', 'Users', 'Auth',
+  function($scope, $timeout, $window, Users, Auth) {
     /* Get all the listings, then bind it to the scope */
     Users.getAll().then(function(response) {
       $scope.users = response.data;
@@ -67,9 +67,9 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$l
           app.loading=false;
           app.successMsg= data.data.message +'...Redirecting';
 
-          $location.path('/')
+
           $timeout(function(){
-            $location.path('/c');
+            $window.location.href='/c';
           }, 2000);
         }
       });
