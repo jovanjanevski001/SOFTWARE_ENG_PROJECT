@@ -119,7 +119,7 @@ exports.customerByID = function(req, res, next, id) {
 };
 
 exports.validate= function(req, res){
-  Customer.findOne({username: req.body.username}).select('username email pw').exec(function(err,user){
+  Customer.findOne({username: req.body.username}).select('username userType email pw').exec(function(err,user){
     if(err) throw err;
 
     if(!user){
@@ -133,7 +133,7 @@ exports.validate= function(req, res){
       if(!validPassword){
         res.json({success:false, message: 'Incorrect password'});
       } else {
-        var token=jwt.sign({ username: user.username, email: user.email }, secret, {expiresIn: '30m'} );
+        var token=jwt.sign({ username: user.username, userType: user.userType, email: user.email }, secret, {expiresIn: '30m'} );
         res.json({success:true, message: 'Login successful!', token: token});
       }
     }
@@ -145,7 +145,7 @@ exports.returnToken= function(req, res){
   if (token) {
     jwt.verify(token, secret, function(err, decoded){
       if(err){
-        res.json({success: false, message: 'Token invalid'});
+        res.json({failure: true, message: 'Token invalid'});
       } else {
         req.decoded= decoded;
         res.send(req.decoded);

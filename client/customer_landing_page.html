@@ -12,9 +12,9 @@
     <div class="container" ng-controller="UsersController">
       <li><a href="/" ng-click="logout()">Logout</a></li>
       <li ng-click="getInfo()">CHECK</li>
-    </div>
-      <div class="row" ng-controller="ItemsController">
-        <h1 align = "center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome Valued Customer! 	  <span style="float:right"> Your cart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h1>
+      <h1 align = "center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome {{username}} 	  <span style="float:right"> Your cart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h1>
+</div>
+<div class="row" ng-controller="ItemsController">
 	<h4 align="center"> You may select items from below to place in your cart. </h4>
 	<div class="tableWrap">
             <table class="table table-striped table-hover">
@@ -57,14 +57,15 @@
             </table>
           </div>
         </div>
-      </div>
+
 	<p>&nbsp;</p>
 	<form action='/../../'>
 	  <button class="button" style="display: inline" onClick = "openTab(event, 'Cancel Order')" id="cancel">Cancel Order</button>
 	</form>
 	<!--<form action='/../../'> Will eventually link to checkout page-->
-	  <button class="button" style="display: inline; right: 175px" onClick = "openTab(event, 'Checkout')" id="checkout">Checkout</button>
+	  <button class="button" style="display: inline; right: 175px" ng-click = "order()" id="checkout">Checkout</button>
 	<!--</form>-->
+  </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>

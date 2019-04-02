@@ -42,11 +42,13 @@ angular.module('items').controller('ItemsController', ['$scope', 'Items',
       $scope.items.push(item);
     };
 
-    $scope.deleteItem = function (index, id) {
+    $scope.order = function() {
 
+      angular.forEach($scope.cart, function(value, key){
+        Items.delete(value._id);
+      });
+      $scope.cart=[];
 
-      Items.delete(id);
-      $scope.items.splice(index, 1);
 
     };
 

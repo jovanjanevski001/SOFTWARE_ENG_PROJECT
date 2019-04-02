@@ -44,7 +44,7 @@ angular.module('users', []).factory('Users', function($http) {
         return $http.post('/api/users/user');
         }
         else{
-          return {message:'user has no token'};
+          return {success:false, message:'user has no token'};
         }
       };
 

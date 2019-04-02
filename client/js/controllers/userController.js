@@ -7,19 +7,21 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$l
       console.log('Unable to retrieve users:', error);
     });
 
-    $scope.isLoggedIn=false;
-    if(Auth.getInfo().success)
-    {$scope.isLoggedIn=true;}
-    console.log($scope.isLoggedIn);
+    $scope.isLoggedIn=Auth.isLoggedIn();
 
-    $scope.addUser = function() {
-   var check=$scope.newUser.password;
-   var check2=$scope.newUser.password2;
-   var app={};
-
-
+    if(Auth.isLoggedIn()){
+      Auth.getInfo().then(function(data){
+        $scope.isLoggedIn=!data.data.failure;
+        $scope.username=data.data.username;
+      });
+    }
+    //$scope.username='andrew'
 
 
+
+  $scope.addUser = function() {
+    var check=$scope.newUser.password;
+    var check2=$scope.newUser.password2;
 
    if(check===check2){
 
@@ -65,6 +67,7 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$l
           app.loading=false;
           app.successMsg= data.data.message +'...Redirecting';
 
+          $location.path('/')
           $timeout(function(){
             $location.path('/c');
           }, 2000);
@@ -81,10 +84,11 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$l
     };
 
     $scope.getInfo=function(){
+      if(Auth.isLoggedIn()){
       Auth.getInfo().then(function(data){
-
         console.log(data);
       });
+    }
     };
 
 
