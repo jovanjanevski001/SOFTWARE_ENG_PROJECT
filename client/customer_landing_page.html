@@ -10,7 +10,6 @@
 	<img src = "logo-transparent.png" alt = "logo" width= "200" height= "200"/>
       </div>
     <div class="container" ng-controller="UsersController">
-      <li><a href="/" ng-click="logout()">Logout</a></li>
       <h1 align = "center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome {{username}} 	  <span style="float:right"> Your cart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h1>
 </div>
 <div class="row" ng-controller="ItemsController">
@@ -60,6 +59,9 @@
 	<p>&nbsp;</p>
 	<form action='/../../'>
 	  <button class="button" style="display: inline; left: 175px" onClick = "openTab(event, 'Cancel Order')" id="cancel">Cancel Order</button>
+	</form>
+	<form action='/../../'>
+	  <button class="button" style="display: inline; right: 175px" onClick = "openTab(event, 'Logout')" ng-click="logout()" id="logout">Logout</button>
 	</form>
 	<!--<form action='/../../'> Will eventually link to checkout page-->
 	  <button class="button" style="display: inline; right: 175px" ng-click = "order()" id="checkout">Checkout</button>
