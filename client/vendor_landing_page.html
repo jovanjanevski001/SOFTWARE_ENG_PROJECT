@@ -6,7 +6,7 @@
   </head>
   <body ng-app="directoryApp">
     <div class="container">
-      <div class="row" id="top" ng-controller="UsersController">
+      <div class="row" id="top">
 	<img src = "logo-transparent.png" alt = "logo" width= "200" height= "200"/>
       </div>
       <div class="row" ng-controller="ItemsController">
@@ -48,14 +48,6 @@
 	  <button class="button" style="display: inline; right: -700px; top:-233px" onClick = "openTab(event, 'Sign Out')" ng-click="logout()" id="logout">Sign Out</button>
 	</form>
         </div>
-        <!--<div class="col-md-6">
-          <div class="jumbotron">
-            <h2>Detailed Information</h2>
-            <h4>{{detailedInfo.name}}</h4>
-            <p>Address: {{detailedInfo.address}}</p>
-            <p>Building Code: {{detailedInfo.code}}</p>
-          </div>
-        </div>-->
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
