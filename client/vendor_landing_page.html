@@ -6,26 +6,12 @@
   </head>
   <body ng-app="directoryApp">
     <div class="container">
-      <div class="row" id="top">
+      <div class="row" id="top" ng-controller="UsersController">
 	<img src = "logo-transparent.png" alt = "logo" width= "200" height= "200"/>
       </div>
       <div class="row" ng-controller="ItemsController">
         <h1 align = "center">Welcome {{username}}</h1>
 	<h4 align="center"> You may add items to the inventory and search the current inventory below. </h4>
-	<!--<div class="tableWrapped">
-            <table class="table table-striped table-hover">
-              <tr>
-                <th width="200">Item</th>
-                <th>Cost</th>
-                <th></th>
-              </tr>
-              <tr ng-repeat="item in items | filter: query" ng-click="showDetails($index)">
-                <td width="200">{{item.name}}</td>
-                <td width="100">{{item.price}}</td>
-                <td ng-click="deleteItem($index, item._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
-              </tr>
-            </table>
-          </div>--->
 	<p> &nbsp; </p>
 	<h3 align="center">Current Inventory</h3>
         <div class="col-md-6">
@@ -57,8 +43,9 @@
           <!--Vendor: <input type="text" ng-model="newItem.vendor" /><br />-->
             <button class="btn btn-primary" ng-click="addItem()" id="itemAdd">Add Item</button>
           </form>
+	<button class="button" style="display: inline; right: -590px; top: -233px; position:absolute; background-color:Cornflowerblue" onClick = "openTab(event, 'My Account')">My 		Account </button> 
 	<form action='/../../' ng-controller="UsersController">
-	  <button class="button" style="display: inline; right: -700px; top:-233px" onClick = "openTab(event, 'Logout')" ng-click="logout()" id="logout">Logout</button>
+	  <button class="button" style="display: inline; right: -700px; top:-233px" onClick = "openTab(event, 'Sign Out')" ng-click="logout()" id="logout">Sign Out</button>
 	</form>
         </div>
         <!--<div class="col-md-6">

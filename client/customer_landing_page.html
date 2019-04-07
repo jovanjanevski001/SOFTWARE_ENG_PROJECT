@@ -6,13 +6,13 @@
   </head>
   <body ng-app="directoryApp">
     <div class="container">
-      <div class="row" id="top">
+      <div class="row" id="top" ng-controller="UsersController">
 	<img src = "logo-transparent.png" alt = "logo" width= "200" height= "200"/>
       </div>
     <div class="container" ng-controller="UsersController">
-      <h1 align = "center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome {{username}} 	  <span style="float:right"> Your cart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h1>
-</div>
-<div class="row" ng-controller="ItemsController">
+      <h1 align = "center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome {{username}} 	  	<span style="float:right"> Your cart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h1>
+    </div>
+    <div class="row" ng-controller="ItemsController">
 	<h4 align="center"> You may select items from below to place in your cart. </h4>
 	<div class="tableWrap">
             <table class="table table-striped table-hover">
@@ -60,8 +60,12 @@
 	<form action='/../../'>
 	  <button class="button" style="display: inline; left: 175px" onClick = "openTab(event, 'Cancel Order')" id="cancel">Cancel Order</button>
 	</form>
+	<div ng-controller="UsersController">
+	<button ng-show="isLoggedIn" class="button" style="display: inline; right: 200px; top: 140px; position:absolute; background-color:Cornflowerblue" 
+	onClick = "openTab(event, 'My Account')">My Account </button> 
+	</div>
 	<form action='/../../' ng-controller="UsersController">
-	  <button class="button" style="display: inline; right: 90px; top: 140px" onClick = "openTab(event, 'Logout')" ng-click="logout()" id="logout">Logout</button>
+	  <button class="button" style="display: inline; right: 90px; top: 140px" onClick = "openTab(event, 'Sign Out')" ng-click="logout()" id="logout">Sign Out</button>
 	</form>
 	<!--<form action='/../../'> Will eventually link to checkout page-->
 	  <button class="button" style="display: inline; right: 175px" ng-click = "order()" id="checkout">Checkout</button>
