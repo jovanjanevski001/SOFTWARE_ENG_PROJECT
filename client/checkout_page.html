@@ -2,14 +2,53 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/account.css">
+    <link rel="stylesheet" href="styles/checkout.css">
   </head>
   <body ng-app="directoryApp">
     <div class = "container">
-      <div class="row" id="top" ng-controller="UsersController">
+      <div class="row" id="top">
 	<img src = "logo-transparent.png" alt = "logo" width= "200" height= "200"/>
       </div>
     </div>
+      <div class = "container">
+        <h1 style="position:absolute; right:250px">Your cart</h1>
+        <div class="input-group" id="searchBar">
+          <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+          <input type="text" class="form-control" placeholder="Search" ng-model="query">
+        </div>
+        <div class="tableWrap" ng-controller="ItemsController">
+          <table class="table table-striped table-hover">
+            <tr>
+              <th width="200">Item</th>
+              <th>Price</th>
+              <th></th>
+            </tr>
+            <tr ng-repeat="item in items | filter: query" ng-click="showDetails($index)">
+              <td width="200">{{item.name}}</td>
+              <td width="100">${{item.price}}</td>
+              <td ng-click="removeFromCart($index, item)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
+            </tr>
+          </table>
+        </div>
+	<h2 style="position:absolute; right: 970px; top: 300px"> Card Information </h2>
+        <h3> <form novalidate class="simple-form" style="position:absolute; right: 890px; top: 370px">
+        Card Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select><option value="credit">Credit</option><option value="debit">Debit</option></select><p></p>
+        Account Holder Name: <input type="text" ng-model="newCard.price5" /><br />
+	Card Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price" /><br />
+	Security Code:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price2" /><br />
+	Expiration Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price3" style="width:50px; display:inline-block"/> /
+        <input type="text" ng-model="newCard.price4" style="width:50px; display:inline-block" /><br /><br />
+        </form> </h3>
+	<div class="col-md-6">
+          <div ng-if="detailedInfo !== undefined" class="jumbotron">
+            <h4><b>Item:</b> {{detailedInfo.name}}</h4>
+            <h4><b>Vendor:</b> {{detailedInfo.vendor}}</h4>
+            <h4><b>Cost:</b> ${{detailedInfo.price}}</h4>
+          </div>
+        </div>
+	<button class="button" style="position:absolute; top: 620px; right: 260px; padding: 8px 12px; background-color:green; border:solid" onClick = "openTab(event, 'Submit')">Submit Order</button>
+      </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>

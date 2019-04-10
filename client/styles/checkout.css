@@ -5,6 +5,30 @@
   margin: 0px 0px 0px -200px;
 }
 
+#searchBar {
+  width: 350px;
+  position: absolute;
+  top: 300px;
+  right: 40px;
+}
+
 img {
 	margin: 0px 0px 0px 175px;
+}
+
+.tableWrap {
+  max-height: 300px;
+  overflow: auto;
+  width: 350px;
+  margin: 0px 0px 0px 950px;
+  position: absolute;
+  top: 340px;
+}
+
+.jumbotron {
+  position: relative;
+  width: 325px;
+  height: 300px;
+  margin: 150px 0px 0px 500px;
+  background-color: orange;
 }
