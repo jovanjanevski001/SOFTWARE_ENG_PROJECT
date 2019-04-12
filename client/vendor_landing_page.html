@@ -43,10 +43,13 @@
           <!--Vendor: <input type="text" ng-model="newItem.vendor" /><br />-->
             <button class="btn btn-primary" ng-click="addItem()" id="itemAdd">Add Item</button>
           </form>
-	<button class="button" style="display: inline; right: -590px; top: -233px; position:absolute; background-color:Cornflowerblue" onClick = "openTab(event, 'My Account')">My 		Account </button> 
-	<form action='/../../' ng-controller="UsersController">
-	  <button class="button" style="display: inline; right: -700px; top:-233px" onClick = "openTab(event, 'Sign Out')" ng-click="logout()" id="logout">Sign Out</button>
-	</form>
+	  <img ng-show="isLoggedIn" src = "default-profile-picture.png" alt = "Profile Picture" width= "125" height= "125" style="position:absolute; top:-350px; right:-650px"/>
+	  <form action='/../../a'>
+	    <button class="button" style="display: inline; right: -590px; top: -233px; position:absolute; background-color:Cornflowerblue" onClick = "openTab(event, 'My Account')">My 		    Account </button> 
+	  </form>
+	  <form action='/../../' ng-controller="UsersController">
+	    <button class="button" style="display: inline; right: -700px; top:-233px" onClick = "openTab(event, 'Sign Out')" ng-click="logout()" id="logout">Sign Out</button>
+	  </form>
         </div>
       </div>
     </div>
