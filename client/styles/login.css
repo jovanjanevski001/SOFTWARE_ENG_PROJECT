@@ -18,6 +18,26 @@ input[type=text] {
   right:270px;
 }
 
+input[type=password] {
+  width: 325px;
+  padding: 8px;
+  display:inline-block;
+  font-size: 20px;
+  position:relative;
+  float:right;
+  right:270px;
+}
+
+input[type=email] {
+  width: 325px;
+  padding: 8px;
+  display:inline-block;
+  font-size: 20px;
+  position:relative;
+  float:right;
+  right:270px;
+}
+
 input[type=checkbox] {
   display:inline-block;
   position: absolute;
