@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="styles/account.css">
   </head>
   <body ng-app="directoryApp">
-     <div class = "container">
+     <div class = "container" ng-controller="UsersController">
       <div class="row" id="top" ng-controller="UsersController">
 	<img src = "logo-transparent.png" alt = "logo" width= "200" height= "200"/>
       </div>
@@ -15,7 +15,7 @@
       <button class="button" style="position:absolute; top: 625px; left: 245px; padding: 10px 18px" onClick = "openTab(event, 'Remove')">Remove Profile Picture</button>
       <h1 style="position:absolute; right: 400px"> Account Information </h1>
       <h3> <form novalidate class="simple-form" style="position:absolute; right: 400px; top: 300px">
-        Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newItem.name"/><br />
+        Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newItem.name" value="{{username}}"/><br />
         Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="email" ng-model="newItem.price" /><br />
 	Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="password" ng-model="newItem.price2" /><br />
 	Confirm Password: <input type="password" ng-model="newItem.price3" /><br />
@@ -25,12 +25,15 @@
         Card Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <select><option value="credit">Credit</option><option value="debit">Debit</option></select><p></p>
         Account Holder Name: <input type="text" ng-model="newCard.price5" /><br />
-	Card Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price" /><br />
-	Security Code:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price2" maxlength="3"/><br />
+	Card Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price" oninput="this.value =
+        this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/><br />
+	Security Code:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price2" maxlength="3" style="width:50px"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/><br />
 	Expiration Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price3" style="width:50px; display:inline-block"
-        maxlength="2"/> / <input type="text" ng-model="newCard.price4" style="width:50px; display:inline-block" maxlength="2"/><br /><br />
+        maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/> / <input type="text" ng-model="newCard.price4" style="width:50px;
+        display:inline-block" maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/><br /><br />
       </form> </h3>
-      <button class="button" style="position:absolute; top: 680px; left: 800px; padding: 8px 12px; background-color:green; border:solid" onClick = "openTab(event, 'Save')">Save Changes
+      <button class="button" style="position:absolute; top: 680px; left: 800px; padding: 8px 12px; background-color:green; border:solid" onClick = "javascript:history.back()">Save Changes
       </button>
       <button class="button" style="position:absolute; top: 680px; left: 1000px; padding: 8px 12px; background-color:red; border:solid" onClick = "javascript:history.back()">Cancel
       </button>
@@ -45,3 +48,16 @@
     <script src="js/controllers/userController.js"></script>
   </body>
 </html>
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+

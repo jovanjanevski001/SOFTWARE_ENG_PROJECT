@@ -23,7 +23,7 @@
               <th>Price</th>
               <th></th>
             </tr>
-            <tr ng-repeat="item in items | filter: query" ng-click="showDetails($index)">
+            <tr ng-repeat="item in order | filter: query" ng-click="showDetails($index)">
               <td width="200">{{item.name}}</td>
               <td width="100">${{item.price}}</td>
               <td ng-click="removeFromCart($index, item)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
@@ -35,10 +35,13 @@
         Card Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <select><option value="credit">Credit</option><option value="debit">Debit</option></select><p></p>
         Account Holder Name: <input type="text" ng-model="newCard.price5" /><br />
-	Card Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price" /><br />
-	Security Code:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price2" maxlength="3"/><br />
+	Card Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price" oninput="this.value =
+        this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/><br />
+	Security Code:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price2" maxlength="3" style="width:50px"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/><br />
 	Expiration Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price3" style="width:50px; display:inline-block" 
-        maxlength="2"/> / <input type="text" ng-model="newCard.price4" style="width:50px; display:inline-block" maxlength="2"/><br /><br />
+        maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/> / <input type="text" ng-model="newCard.price4" style="width:50px;
+        display:inline-block" maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/><br /><br />
         </form> </h3>
 	<div class="col-md-6">
           <div ng-if="detailedInfo !== undefined" class="jumbotron">
@@ -47,7 +50,12 @@
             <h4><b>Cost:</b> ${{detailedInfo.price}}</h4>
           </div>
         </div>
-	<button class="button" style="position:absolute; top: 620px; right: 260px; padding: 8px 12px; background-color:green; border:solid" onClick = "openTab(event, 'Submit')">Submit Order</button>
+	<button class="button" style="position:absolute; top: 620px; right: 260px; padding: 8px 12px; background-color:green; border:solid" onClick = "openTab(event, 'Submit')">Submit
+        Order</button>
+	<form action='/../../'>
+	  <button class="button" style="position:absolute; top: 620px; right: 110px; padding: 8px 12px; background-color:OrangeRed; border:solid" onClick = "openTab(event,
+          'Cancel')">Cancel Order</button>
+        </form>
       </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
