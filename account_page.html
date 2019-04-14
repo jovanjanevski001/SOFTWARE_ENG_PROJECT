@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/account.css">
+  </head>
+  <body ng-app="directoryApp">
+     <div class = "container">
+      <div class="row" id="top" ng-controller="UsersController">
+	<img src = "logo-transparent.png" alt = "logo" width= "200" height= "200"/>
+      </div>
+      <img src = "default-profile-picture.png" alt = "Profile Picture" width= "300" height= "300" style="position:absolute; top:250px; left:0px"/>
+      <!--there should eventually be both an add or change button, one would show up as an option depending on whether there already is a profile picture-->
+      <button class="button" style="position:absolute; top: 570px; left: 220px; padding: 10px 18px" onClick = "openTab(event, 'Upload')">Add or Change Profile Picture</button>
+      <button class="button" style="position:absolute; top: 625px; left: 245px; padding: 10px 18px" onClick = "openTab(event, 'Remove')">Remove Profile Picture</button>
+      <h1 style="position:absolute; right: 400px"> Account Information </h1>
+      <h3> <form novalidate class="simple-form" style="position:absolute; right: 400px; top: 300px">
+        Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newItem.name"/><br />
+        Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="email" ng-model="newItem.price" /><br />
+	Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="password" ng-model="newItem.price2" /><br />
+	Confirm Password: <input type="password" ng-model="newItem.price3" /><br />
+      </form> </h3>
+      <h2 style="position:absolute; right: 440px; top: 430px"> Card Information </h2>
+      <h3> <form novalidate class="simple-form" style="position:absolute; right: 360px; top: 500px">
+        Card Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select><option value="credit">Credit</option><option value="debit">Debit</option></select><p></p>
+        Account Holder Name: <input type="text" ng-model="newCard.price5" /><br />
+	Card Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price" /><br />
+	Security Code:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price2" maxlength="3"/><br />
+	Expiration Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price3" style="width:50px; display:inline-block"
+        maxlength="2"/> / <input type="text" ng-model="newCard.price4" style="width:50px; display:inline-block" maxlength="2"/><br /><br />
+      </form> </h3>
+      <button class="button" style="position:absolute; top: 680px; left: 800px; padding: 8px 12px; background-color:green; border:solid" onClick = "openTab(event, 'Save')">Save Changes
+      </button>
+      <button class="button" style="position:absolute; top: 680px; left: 1000px; padding: 8px 12px; background-color:red; border:solid" onClick = "javascript:history.back()">Cancel
+      </button>
+     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factories/listingFactory.js"></script>
+    <script src="js/controllers/listingController.js"></script>
+    <script src="js/factories/userFactory.js"></script>
+    <script src="js/controllers/userController.js"></script>
+  </body>
+</html>
