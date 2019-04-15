@@ -39,9 +39,15 @@ mongoose.connect(config.db.uri, {useMongoClient: true});
 
   app.use('/cl', express.static(__dirname + '/../../client/customer_login_page.html'))
 
-  app.use('/a', express.static(__dirname + '/../../client/account_page.html'))
+  app.use('/ac', express.static(__dirname + '/../../client/account_page.html'))
 
   app.use('/ch', express.static(__dirname + '/../../client/checkout_page.html'))
+
+  app.use('/al', express.static(__dirname + '/../../client/admin_login_page.html'))
+
+  app.use('/a', express.static(__dirname + '/../../client/admin_landing_page.html'))
+
+  app.use('/ar', express.static(__dirname + '/../../client/admin_register_page.html'))
   /**TODO
   Use the listings router for requests to the api */
   app.use('/api/items', itemsRouter);
