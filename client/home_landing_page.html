@@ -28,7 +28,6 @@
               <tr>
                 <th width="450">Item</th>
                 <th>Price</th>
-                <th></th>
               </tr>
               <tr ng-repeat="item in items | filter: query" ng-click="showDetails($index)">
                 <td width="450">{{item.name}}</td>
@@ -53,7 +52,7 @@
         <button class="button" style="display: inline; right: 90px; top: 140px" onClick = "openTab(event, 'Logout')" ng-click="logout()" id="logout">Logout</button>
     </form>
     </div>
-      <h3 align = "center" id = "bottom" style="display: inline">Are you a vendor? If so, <form action='/../../vl' style="display: inline"><button class="button">Sign In</button> </form> or <form action='/../../vr' style="display: inline"><button class="button">Create Account</button></form></h3>
+      <h3 align = "center" id = "bottom" style="display: inline">Are you a vendor? If so, click <form action='/../../vl' style="display: inline"><button class="button"> Vendor Sign In</button> </form> Are you an administrator? If so, click <form action='/../../vr' style="display: inline"><button class="button">Admin Sign In</button></form></h3>
 	</div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

@@ -29,7 +29,7 @@
               </tr>
               <tr ng-repeat="item in items | filter: query" ng-click="showDetails($index)">
                 <td width="300">{{item.name}}</td>
-		            <td width="300">{{item.vendor}}</td>
+		<td width="300">{{item.vendor}}</td>
                 <td>${{item.price}}</td>
                 <!--<td ng-click="deleteItem(y._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>--->
 		<td ng-click="deleteItem($index, item._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
