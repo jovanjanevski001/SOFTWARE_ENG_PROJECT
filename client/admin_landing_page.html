@@ -26,7 +26,7 @@
                 <th width="350">Vendor</th>
 		<th></th>
               </tr>
-              <tr ng-repeat="user in users | filter: query" ng-click="showDetails($index)">
+              <tr ng-repeat="user in users | filter: userType='vendor'" ng-click="showDetails($index)">
                 <td width="350">{{user.username}}</td>
                 <td ng-click="deleteVendor($index, item._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
               </tr>
@@ -58,20 +58,26 @@
 
 	<p>&nbsp;</p>
 	<div ng-controller="UsersController">
+	  <img src = "default-profile-picture.png" alt = "Profile Picture" width= "125" height= "125" style="position:absolute; top:-250px; right:-578px"/>
 	  <form action='/../../ar'>
 	    <button class="button" style="display: inline; left: -150px; top: 295px" onClick = "openTab(event, 'Cancel Order')" id="admin">Add an Admin</button>
-	  </form> 
-	  <img ng-show="isLoggedIn" src = "default-profile-picture.png" alt = "Profile Picture" width= "125" height= "125" style="position:absolute; top:-250px; right:-600px"/>
-	  <form action='/../../a'>
-	    <button ng-show="isLoggedIn" class="button" style="display: inline; right: -673px; top: -130px; position:absolute; background-color:Cornflowerblue" 
+	  </form>
+	  <form action='/../../ac'>
+	    <button class="button" style="display: inline; right: -581px; top: -130px; position:absolute; background-color:Cornflowerblue" 
 	    onClick = "openTab(event, 'My Account')">My Account </button> 
-          </form> 
-	  <form action='/../../'>
+          </form>
+	  <!--<form action='/../../'>
 	    <button ng-show="isLoggedIn" class="button" style="display: inline; right: -538px; top: -130px" onClick = "openTab(event, 'Sign Out')" ng-click="logout()" id="logout">Sign Out
             </button>
-	  </form>
+	  </form>-->
 	  <form action='/../../vr'>
 	    <button class="button" style="display: inline; left: -150px; top: 350px" id="vendor">Add a Vendor</button>
+	  </form>
+	  <form action='/../../'>
+	    <button class="button" style="display: inline; right: -450px; top:-130px" onClick = "openTab(event, 'Cancel Order')" id="return">Return to Menu</button>
+	  </form>
+	  <form action='/../../'>
+	    <button class="button" style="display: inline; right: -689px; top: -130px" onClick = "openTab(event, 'Sign Out')" ng-click="logout()" id="logout">Sign Out</button>
 	  </form>
 	</div>
   </div>
