@@ -32,7 +32,7 @@
 		<td width="300">{{item.vendor}}</td>
                 <td>${{item.price}}</td>
                 <!--<td ng-click="deleteItem(y._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>--->
-		<td ng-click="deleteItem($index, item._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
+		<td ng-show="item.vendor==username" ng-click="deleteItem($index, item._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
               </tr>
             </table>
           </div>
