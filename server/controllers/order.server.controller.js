@@ -40,8 +40,8 @@ exports.update = function(req, res) {
 
   // change the contents of listing to the req's body contents
   order.name = req.body.name;
-  order.price= req.body.price;
   order.vendor= req.body.vendor;
+  order.item= req.body.item;
 
   /* Save the listing */
   order.save(function(err) {
