@@ -5,6 +5,7 @@ var path = require('path'),
     bodyParser = require('body-parser'),
     config = require('./config'),
     itemsRouter = require('../routes/item.server.routes.js'),
+    ordersRouter = require('../routes/order.server.routes.js'),
     usersRouter= require('../routes/customer.server.routes.js');
 
 module.exports.init = function() {
@@ -52,6 +53,7 @@ mongoose.connect(config.db.uri, {useMongoClient: true});
   Use the listings router for requests to the api */
   app.use('/api/items', itemsRouter);
   app.use('/api/users', usersRouter);
+  app.use('/api/orders', ordersRouter);
 
   /**TODO
   Go to homepage for all routes not specified */
