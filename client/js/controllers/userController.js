@@ -13,6 +13,8 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$w
       Auth.getInfo().then(function(data){
         $scope.isLoggedIn=!data.data.failure;
         $scope.username=data.data.username;
+	$scope.email=data.data.email;
+	$scope.pw=data.data.password;
       });
     }
     //$scope.username='andrew'
