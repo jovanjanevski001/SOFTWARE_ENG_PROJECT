@@ -1,6 +1,6 @@
 var should = require('should'),
     mongoose = require('mongoose'),
-    Item = require('../models/listings.server.model'),
+    Item = require('../models/item.server.model'),
     User = require('../models/user.server.model'),
     config = require('../config/config');
 
@@ -39,7 +39,7 @@ describe('Item Schema Unit Tests', function() {
     });
 
     it('throws an error when name not provided', function(done){
-      new Listing({
+      new Item({
         price: item.price,
         vendor: item.vendor
       }).save(function(err){
@@ -49,7 +49,7 @@ describe('Item Schema Unit Tests', function() {
     });
 
     it('throws an error when vendor not provided', function(done){
-      new Listing({
+      new Item({
         name: item.name,
         price: item.price
       }).save(function(err){
@@ -59,7 +59,7 @@ describe('Item Schema Unit Tests', function() {
     });
 
     it('throws an error when price not provided', function(done){
-      new Listing({
+      new Item({
         name: item.name,
         vendor: item.vendor
       }).save(function(err){
@@ -72,7 +72,7 @@ describe('Item Schema Unit Tests', function() {
 
   afterEach(function(done) {
     if(id) {
-      Listing.remove({ _id: id }).exec(function() {
+      Item.remove({ _id: id }).exec(function() {
         id = null;
         done();
       });

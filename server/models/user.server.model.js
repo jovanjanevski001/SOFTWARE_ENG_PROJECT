@@ -11,14 +11,13 @@ var userSchema = new Schema({
   email: {type: String, required: true, unique: true},
   userType:{type: String, required: true},
   pw:	{type: String, required: true},
+  
+  creditCardName:{type: String},
+  creditCardNumber:{type: Number},
+  creditCardExpYear:{type: Number},
+  creditCardExpMonth:{type: Number},
+  creditCardSecurityNum:{type: Number},
 
-  creditCard:{
-    name:{type: String, required: true},
-    number:{type: Number, required: true},
-    expYear:{type: Number, required: true},
-    expMonth:{type: Number, required: true},
-    securityNum:{type: Number, required: true}
-  },
 
   created_at: Date,
   updated_at: Date
