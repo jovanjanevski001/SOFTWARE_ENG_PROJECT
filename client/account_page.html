@@ -27,11 +27,9 @@
         Account Holder Name: <input type="text" ng-model="newCard.price5" /><br />
 	Card Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price" oninput="this.value =
         this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/><br />
-	Security Code:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price2" maxlength="3" style="width:50px"
+	Security Code:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price1" maxlength="3" style="width:50px"
         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/><br />
-	Expiration Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price3" style="width:50px; display:inline-block"
-        maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/> / <input type="text" ng-model="newCard.price4" style="width:50px;
-        display:inline-block" maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/><br /><br />
+	Expiration Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="month" ng-model="newCard.price2"/><br />
       </form> </h3>
       <button class="button" style="position:absolute; top: 680px; left: 800px; padding: 8px 12px; background-color:green; border:solid" onClick = "javascript:history.back()">Save Changes
       </button>

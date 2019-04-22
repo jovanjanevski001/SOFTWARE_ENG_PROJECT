@@ -23,7 +23,7 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$w
                 $scope.isLoggedIn=!data.data.failure;
                 $scope.username=data.data.username;
                 $scope.email=data.data.email;
-                $scope.pw=data.data.password;
+	        console.log(data.data);
             });
         }
         //$scope.username='andrew'
