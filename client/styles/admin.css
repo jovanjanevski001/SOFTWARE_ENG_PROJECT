@@ -1,6 +1,6 @@
 #searchBar {
   margin: 0px 200px 15px 80px;
-  width: 350px;
+  width: 400px;
   position: absolute;
   top: 75px;
 }
@@ -25,7 +25,7 @@
   position: absolute;
   max-height: 280px;
   overflow: auto;
-  width: 350px;
+  width: 400px;
   margin: 0px 200px 0px 80px;
   top: 125px;
 }

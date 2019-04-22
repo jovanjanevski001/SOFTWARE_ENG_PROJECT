@@ -13,7 +13,7 @@
       <h1 align = "center">Welcome {{username}}</h1>
     </div>
     <h2 style="position:absolute; right:250px">Current Inventory</h2>
-    <h2 style="position:absolute; left:350px">List of Vendors</h2>
+    <h2 style="position:absolute; left:375px">List of Vendors</h2>
     <div class="row" ng-controller="UsersController">
         <div class="col-md-6">
           <div class="input-group" id="searchBar">
@@ -23,11 +23,13 @@
           <div class="tableWrapped">
             <table class="table table-striped table-hover">
               <tr>
-                <th width="350">Vendor</th>
+                <th width="150">Vendor</th>
+		<th width="250">Email</th>
 		<th></th>
               </tr>
               <tr ng-repeat="user in users | filter: userType='vendor'" ng-click="showDetails($index)">
-                <td width="350">{{user.username}}</td>
+                <td width="150">{{user.username}}</td>
+		<td width="250">{{user.email}}</td>
                 <td ng-click="deleteVendor($index, user._id, user.username)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
               </tr>
             </table>
