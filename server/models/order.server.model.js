@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 
 /* Create your schema */
 var orderSchema = new Schema({
-  user_email: {type: String, required: true},
+  user_email: {type: String},
   vendor: [{type: String, required: true, unique: false}],
   item: [{type: String, required: true, unique: false}],
   price: {type:Number, required: true},
