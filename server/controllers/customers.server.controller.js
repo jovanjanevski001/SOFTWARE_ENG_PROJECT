@@ -58,8 +58,14 @@ exports.update = function(req, res) {
 
   // change the contents of listing to the req's body contents
   customer.name = req.body.name;
-  customer.cardNumber = req.body.cardNumber;
+  customer.email=req.body.email;
   customer.pw = req.body.pw;
+  customer.creditCard.name = req.body.creditCard.name;
+  customer.creditCard.number = req.body.creditCard.number;
+  customer.creditCard.expYear = req.body.creditCard.expYear;
+  customer.creditCard.expMonth = req.body.creditCard.expMonth;
+  customer.creditCard.securityNum = req.body.creditCard.securityNum;
+
 
   /* Save the listing */
   customer.save(function(err) {
