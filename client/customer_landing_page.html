@@ -61,13 +61,13 @@
 	  <form action='/../../'>
 	    <button class="button" style="display: inline; left: 175px" onClick = "openTab(event, 'Cancel Order')" id="cancel">Cancel Order</button>
 	  </form>
-	  <button ng-show="isLoggedIn" class="button" style="display: inline; right: 333px; top: 140px; position:absolute; background-color:PaleGreen" 
-	    onClick = "openTab(event, 'Order History')">Order History </button> 
+	  <button ng-show="isLoggedIn" class="button" style="display: inline; right: 333px; top: 140px; position:absolute; background-color:PaleGreen"
+	    onClick = "openTab(event, 'Order History')">Order History </button>
 	  <img ng-show="isLoggedIn" src = "default-profile-picture.png" alt = "Profile Picture" width= "125" height= "125" style="position:absolute; top:20px; right:202px"/>
 	  <form action='/../../ac'>
-	    <button ng-show="isLoggedIn" class="button" style="display: inline; right: 200px; top: 140px; position:absolute; background-color:Cornflowerblue" 
-	    onClick = "openTab(event, 'My Account')">My Account </button> 
-          </form> 
+	    <button ng-show="isLoggedIn" class="button" style="display: inline; right: 200px; top: 140px; position:absolute; background-color:Cornflowerblue"
+	    onClick = "openTab(event, 'My Account')">My Account </button>
+          </form>
 	  <form action='/../../'>
 	    <button ng-show="isLoggedIn" class="button" style="display: inline; right: 90px; top: 140px" onClick = "openTab(event, 'Sign Out')" ng-click="logout()" id="logout">Sign Out
             </button>
