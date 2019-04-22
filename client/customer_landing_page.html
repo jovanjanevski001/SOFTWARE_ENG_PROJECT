@@ -21,7 +21,7 @@
                 <th>Price</th>
                 <th></th>
               </tr>
-              <tr ng-repeat="item in cart | filter: query" ng-click="showDetails($index)">
+              <tr ng-repeat="item in cart | filter: query" ng-click="showCartDetails($index)">
                 <td width="200">{{item.name}}</td>
                 <td width="100">${{item.price}}</td>
                 <td ng-click="removeFromCart($index, item)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
@@ -61,8 +61,10 @@
 	  <form action='/../../'>
 	    <button class="button" style="display: inline; left: 175px" onClick = "openTab(event, 'Cancel Order')" id="cancel">Cancel Order</button>
 	  </form>
-	  <button ng-show="isLoggedIn" class="button" style="display: inline; right: 333px; top: 140px; position:absolute; background-color:PaleGreen" 
-	    onClick = "openTab(event, 'Order History')">Order History </button> 
+      <form action="/../../o">
+        <button ng-show="isLoggedIn" class="button" style="display: inline; right: 333px; top: 140px; position:absolute; background-color:PaleGreen"
+	      onclick="openTab(event,'Order History')">Order History </button>
+      </form>
 	  <img ng-show="isLoggedIn" src = "default-profile-picture.png" alt = "Profile Picture" width= "125" height= "125" style="position:absolute; top:20px; right:202px"/>
 	  <form action='/../../ac'>
 	    <button ng-show="isLoggedIn" class="button" style="display: inline; right: 200px; top: 140px; position:absolute; background-color:Cornflowerblue" 
@@ -73,7 +75,7 @@
             </button>
 	  </form>
 	  <form action='/../../ch'>
-	    <button class="button" style="display: inline; right: 175px" ng-click = "order()" id="checkout">Checkout</button>
+	    <button class="button" style="display: inline; right: 175px" ng-click="storeCart()" id="checkout">Checkout</button>
 	  </form>
 	</div>
   </div>
@@ -83,6 +85,7 @@
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
     <script src="js/factories/listingFactory.js"></script>
+    <script src="js/factories/orderFactory.js"></script>
     <script src="js/controllers/listingController.js"></script>
     <script src="js/factories/userFactory.js"></script>
     <script src="js/controllers/userController.js"></script>

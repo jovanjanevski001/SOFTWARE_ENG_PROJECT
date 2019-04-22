@@ -6,6 +6,10 @@ angular.module('users', []).factory('Users', function($http) {
 
 	create: function(user) {
 	  return $http.post('/api/users', user);
+    },
+
+    delete: function(id) {
+      return $http.delete('/api/users/'+id);
     }
 
   };
@@ -47,8 +51,6 @@ angular.module('users', []).factory('Users', function($http) {
           return {success:false, message:'user has no token'};
         }
       };
-
-
     return authorization;
 })
 

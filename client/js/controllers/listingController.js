@@ -1,5 +1,5 @@
-angular.module('items').controller('ItemsController', ['$scope', 'Items', 'Auth',
-  function($scope, Items, Auth) {
+angular.module('items').controller('ItemsController', ['$scope', 'Items', 'Auth', 'Orders',
+  function($scope, Items, Auth, Orders) {
     /* Get all the listings, then bind it to the scope */
     Items.getAll().then(function (response) {
       $scope.items = response.data;
@@ -7,15 +7,19 @@ angular.module('items').controller('ItemsController', ['$scope', 'Items', 'Auth'
       console.log('Unable to retrieve items:', error);
     });
 
-    if(Auth.isLoggedIn()){
-      Auth.getInfo().then(function(data){
-        $scope.isLoggedIn=!data.data.failure;
-        $scope.username=data.data.username;
+    $scope.email = null;
+
+    if (Auth.isLoggedIn()) {
+      Auth.getInfo().then(function (data) {
+        $scope.isLoggedIn = !data.data.failure;
+        $scope.username = data.data.username;
+        $scope.email = data.data.email;
       });
     }
 
     $scope.detailedInfo = undefined;
     $scope.cart = [];
+    $scope.accountOrders = [];
 
     $scope.addItem = function () {
       /**TODO
@@ -31,8 +35,12 @@ angular.module('items').controller('ItemsController', ['$scope', 'Items', 'Auth'
       $scope.items.push($scope.newItem);
       $scope.newItem = {};
 
-      Items.create(item).then(function(response){$scope.newItem.name =''; $scope.newItem.price=''; $scope.newItem.vendor='';
-      }, function(error){
+      Items.create(item).then(function (response) {
+        $scope.newItem.name = '';
+        $scope.newItem.price = '';
+        $scope.newItem.vendor = '';
+      }, function (error) {
+        console.log('Hi');
         $scope.error = 'item not saved\n' + error;
       });
 
@@ -49,15 +57,16 @@ angular.module('items').controller('ItemsController', ['$scope', 'Items', 'Auth'
       $scope.items.push(item);
     };
 
-    $scope.order = function() {
-
-      angular.forEach($scope.cart, function(value, key){
-        Items.delete(value._id);
-      });
-      $scope.cart=[];
-
-
+    $scope.storeCart = function () {
+      sessionStorage.setItem('cart', JSON.stringify($scope.cart));
+      sessionStorage.setItem('user', JSON.stringify($scope.email))
     };
+
+    $scope.getCart = function () {
+      $scope.cart = JSON.parse(sessionStorage.getItem('cart'));
+      sessionStorage.removeItem('cart');
+    };
+
 
     /** DONE WITH deleteListing **/
 
@@ -65,29 +74,63 @@ angular.module('items').controller('ItemsController', ['$scope', 'Items', 'Auth'
       $scope.detailedInfo = $scope.items[index];
     };
 
-    $scope.deleteItem=function(index, id)
-    {
-      $scope.items.splice(index,1);
+    $scope.showCartDetails = function (index) {
+      $scope.detailedInfo = $scope.cart[index];
+    };
+
+    $scope.deleteItem = function (index, id) {
+      $scope.items.splice(index, 1);
       Items.delete(id);
+    };
+
+    $scope.order = function () {
+      angular.forEach($scope.cart, function (value, key) {
+        Items.delete(value._id);
+      });
+      $scope.cart = [];
     };
 
     $scope.checkout = function () {
       var order = {
-        useremail: undefined,
-        order: $scope.cart
+        user_email: $scope.email,
+        vendor: [],
+        item: [],
+        price: 0
       };
-      Items.createOrder(order).then(function (error) {
-        $scope.error = 'order not saved\n' + error;
+
+      $scope.cart.forEach(function (value, i) {
+        order.item[i] = value.name;
+        order.vendor[i] = value.vendor;
+        order.price += value.price;
       });
 
-      for (let i = 0; i < $scope.cart.length; i++) {
-        Items.delete($scope.cart[i]._id).then(function (response) {
-          $scope.cart = [];
-        }, function (error) {
-          $scope.error = 'item not deleted\n' + error;
+      Orders.create(order).then(function (error) {
+          $scope.error = 'order not saved\n' + error;
         });
-      }
+
+      $scope.cart.forEach(function (value) {
+        Items.delete(value._id);
+      });
+
+      $scope.cart = [];
     };
 
-}
+    Orders.getAll().then(function(response){
+      $scope.orders = response.data;
+
+      $scope.orders.forEach(function(value){
+        if (value.user_email === $scope.email){
+          $scope.accountOrders.push(value);
+        }
+      });
+      sessionStorage.setItem('orders',JSON.stringify($scope.accountOrders));
+
+    }, function(error){
+      console.log('Unable to retrieve orders:', error);
+    });
+
+    $scope.showOrderDetails = function (index) {
+      $scope.detailedInfo = $scope.orders[index];
+    };
+  }
 ]);
