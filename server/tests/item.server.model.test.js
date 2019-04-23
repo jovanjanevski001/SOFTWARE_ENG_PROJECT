@@ -1,7 +1,6 @@
 var should = require('should'),
     mongoose = require('mongoose'),
     Item = require('../models/item.server.model'),
-    User = require('../models/user.server.model'),
     config = require('../config/config');
 
 var listing, id;
