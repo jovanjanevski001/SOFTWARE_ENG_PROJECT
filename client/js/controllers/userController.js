@@ -23,11 +23,9 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$w
                 $scope.isLoggedIn=!data.data.failure;
                 $scope.username=data.data.username;
                 $scope.email=data.data.email;
-	        console.log(data.data);
+			    $scope.userType=data.data.userType;
             });
         }
-        //$scope.username='andrew'
-
 
 
         $scope.addCustomer = function() {
@@ -55,6 +53,38 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$w
                 Users.then(function(response){$scope.newUser.password=''; $scope.newUser.password2='';});
             }
         };
+
+	$scope.updateUser = function(id) {
+		console.log(id);
+	    var check=$scope.pw;
+        var check2=$scope.pw2;
+	    if(check===check2){
+		var user = {
+            username: $scope.username,
+            email: $scope.email,
+            pw: $scope.pw,
+			//pw2: $scope.pw2,
+			userType: $scope.userType,
+		//if (userType == 'customer') {
+		    creditCardName: $scope.creditCardName,
+  		    creditCardNumber: $scope.creditCardNumber,
+  		    creditCardExpYear: '2020',
+  	        creditCardExpMonth: $scope.creditCardExpMonth,
+  	        creditCardSecurityNum: $scope.creditCardSecurityNum,
+  		    creditCardType: $scope.creditCardType
+		//}
+                };
+				console.log(user);
+				$scope.user = {};
+		Users.update(user, id).then(function(response){$scope.username =user.username; $scope.email=user.email; $scope.pw=''; $scope.pw2='';
+                }, function(error){
+                    $scope.error = 'user not updated\n' + error;
+                });
+		console.log(user);
+
+	    }
+	    
+	};
 
         $scope.addVendor = function() {
             var check=$scope.newUser.password;
@@ -89,7 +119,6 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$w
             var check2=$scope.newUser.password2;
 
             if(check===check2){
-
                 var user = {
                     username: $scope.newUser.username,
                     email: $scope.newUser.email,

@@ -15,7 +15,6 @@ var mongoose = require('mongoose'),
 
 /* Create a listing */
 exports.create = function(req, res) {
-
   /* Instantiate a Listing */
 
   var customer = new Customer(req.body);
@@ -67,6 +66,7 @@ exports.update = function(req, res) {
   customer.creditCardExpYear = req.body.creditCardExpYear;
   customer.creditCardExpMonth = req.body.creditCardExpMonth;
   customer.creditCardSecurityNum = req.body.creditCardSecurityNum;
+  customer.creditCardType = req.body.creditCardType;
 
 
   /* Save the listing */

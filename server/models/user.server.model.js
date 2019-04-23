@@ -17,6 +17,7 @@ var userSchema = new Schema({
   creditCardExpYear:{type: Number},
   creditCardExpMonth:{type: Number},
   creditCardSecurityNum:{type: Number},
+  creditCardType:{type: String},
 
 
   created_at: Date,

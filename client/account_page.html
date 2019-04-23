@@ -14,26 +14,28 @@
       <button class="button" style="position:absolute; top: 570px; left: 220px; padding: 10px 18px" onClick = "openTab(event, 'Upload')">Add or Change Profile Picture</button>
       <button class="button" style="position:absolute; top: 625px; left: 245px; padding: 10px 18px" onClick = "openTab(event, 'Remove')">Remove Profile Picture</button>
       <h1 style="position:absolute; right: 400px"> Account Information </h1>
-      <h3> <form novalidate class="simple-form" style="position:absolute; right: 400px; top: 300px">
-        Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="username" value={{username}}><br>
-        Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="email" name="email" value={{email}}><br>
-	Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="pw" value={{pw}}><br>
-	Confirm Password: <input type="password" name="newItem.price3"><br>
+      <h3> <form novalidate class="simple-form" style="position:absolute; right: 400px; top: 300px" ng-repeat="user in users | filter: {email: user.email}">
+        Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="username" value={{user.username}}><br>
+        Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="email" ng-model="email" value={{user.email}}><br>
+	Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="pw" value={{user.pw}}><br>
+	Confirm Password: <input type="password" ng-model="pw2" value={{user.pw}}><br>
+	<button class="button" style="position:absolute; top: 375px; left: 140px; padding: 8px 12px; background-color:green; border:solid" ng-click="updateUser(user._id)">Save Changes
+      </button>
       </form> </h3>
-      <h2 style="position:absolute; right: 440px; top: 430px"> Card Information </h2>
-      <h3> <form novalidate class="simple-form" style="position:absolute; right: 360px; top: 500px">
+      <h2 style="position:absolute; right: 440px; top: 430px" ng-show="user.usertype=='customer'"> Card Information </h2>
+      <h3> <form novalidate class="simple-form" style="position:absolute; right: 360px; top: 500px" ng-show="user.usertype=='customer'" ng-repeat="user in users | filter: {email: user.email}">
         Card Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <select><option value="credit">Credit</option><option value="debit">Debit</option></select><p></p>
-        Account Holder Name: <input type="text" ng-model="newCard.price5" /><br />
-	Card Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price" oninput="this.value =
+        Account Holder Name: <input type="text" ng-model="creditCardName" value={{creditCardName}} /><br />
+	Card Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="creditCardNumber" oninput="this.value =
         this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/><br />
-	Security Code:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="newCard.price1" maxlength="3" style="width:50px"
+	Security Code:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="creditCardSecurityNum" maxlength="3" style="width:50px"
         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/><br />
-	Expiration Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="month" ng-model="newCard.price2"/><br />
+	Expiration Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="month" ng-model="creditCardExpMonth"/><br />
       </form> </h3>
-      <button class="button" style="position:absolute; top: 680px; left: 800px; padding: 8px 12px; background-color:green; border:solid" onClick = "javascript:history.back()">Save Changes
-      </button>
-      <button class="button" style="position:absolute; top: 680px; left: 1000px; padding: 8px 12px; background-color:red; border:solid" onClick = "javascript:history.back()">Cancel
+	  <!--<button class="button" style="position:absolute; top: 680px; left: 800px; padding: 8px 12px; background-color:green; border:solid"  ng-click="updateUser(user._id)">Save Changes
+      </button>-->
+      <button class="button" style="position:absolute; top: 673px; left: 1000px; padding: 12px 16px; background-color:red; border:solid" onClick = "javascript:history.back()">Cancel
       </button>
      </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

@@ -4,12 +4,16 @@ angular.module('users', []).factory('Users', function($http) {
       return $http.get('/api/users');
     },
 
-	create: function(user) {
-	  return $http.post('/api/users', user);
+    create: function(user) {
+      return $http.post('/api/users', user);
     },
 
     delete: function(id) {
       return $http.delete('/api/users/'+id);
+    },
+
+    update: function(user, id) {
+      return $http.post('/api/users/'+id, user);
     }
 
   };

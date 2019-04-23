@@ -36,8 +36,9 @@ exports.read = function(req, res) {
 
 /* Update a listing */
 exports.update = function(req, res) {
+  console.log('hi');
   var vendor = req.vendor;
-
+  
   // change the contents of listing to the req's body contents
   vendor.name = req.body.name;
   vendor.pw = req.body.pw;

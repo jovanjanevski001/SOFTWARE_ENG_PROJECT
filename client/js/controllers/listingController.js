@@ -71,6 +71,7 @@ angular.module('items').controller('ItemsController', ['$scope', 'Items', 'Auth'
     /** DONE WITH deleteListing **/
 
     $scope.showDetails = function (index) {
+		console.log('hi');
       $scope.detailedInfo = $scope.items[index];
     };
 
