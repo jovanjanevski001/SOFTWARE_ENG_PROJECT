@@ -24,6 +24,7 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$w
                 $scope.username=data.data.username;
                 $scope.email=data.data.email;
 			    $scope.userType=data.data.userType;
+				$scope._id=data.data._id;
             });
         }
 
@@ -60,18 +61,18 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$w
         var check2=$scope.pw2;
 	    if(check===check2){
 		var user = {
-            username: $scope.username,
-            email: $scope.email,
-            pw: $scope.pw,
+            username: $scope.change.username,
+            email: $scope.change.email,
+            pw: $scope.change.pw,
 			//pw2: $scope.pw2,
 			userType: $scope.userType,
 		//if (userType == 'customer') {
-		    creditCardName: $scope.creditCardName,
+		    /*creditCardName: $scope.creditCardName,
   		    creditCardNumber: $scope.creditCardNumber,
   		    creditCardExpYear: '2020',
   	        creditCardExpMonth: $scope.creditCardExpMonth,
   	        creditCardSecurityNum: $scope.creditCardSecurityNum,
-  		    creditCardType: $scope.creditCardType
+  		    creditCardType: $scope.creditCardType*/
 		//}
                 };
 				console.log(user);

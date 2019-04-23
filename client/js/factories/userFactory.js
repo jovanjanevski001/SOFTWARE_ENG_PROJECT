@@ -13,7 +13,7 @@ angular.module('users', []).factory('Users', function($http) {
     },
 
     update: function(user, id) {
-      return $http.post('/api/users/'+id, user);
+      return $http.put('/api/users/'+id, user);
     }
 
   };
