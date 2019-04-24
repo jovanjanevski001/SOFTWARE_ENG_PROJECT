@@ -30,10 +30,12 @@
                     <tr>
                         <th width>Date</th>
                         <th>Items</th>
+			<th></th>
                     </tr>
                     <tr ng-repeat="order in accountOrders | filter: query" ng-click="showOrderDetails($index)">
                         <td width=>{{order.created_at | date}}</td>
                         <td ng-repeat="item in order.item">{{item}}</td>
+			<th></td>
                     </tr>
                 </table>
             </div>
