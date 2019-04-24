@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/other.css">
   </head>
   <body ng-app="directoryApp">
 	<div class="row" id="top">
@@ -13,7 +14,11 @@
 	<p>&nbsp;</p>
 	<form novalidate class="simple-form">
 	    <h2>&nbsp;Username</h2><input type="text" ng-model="login.username"/><br/>
-	    <h2>&nbsp;Password</h2><input type="password" ng-model="login.password"/><br/>
+      <h2>&nbsp;Password</h2><input type="password" ng-model="login.password"/><br/>
+        <div ng-hide="loginFailed" class="isa_error">
+          <i class="fa fa-times-circle"></i>
+          Error! Incorrect login information
+        </div>
 	    <p>&nbsp;</p>
             <button class="btn btn-primary" ng-click="adminLogin()">Sign In</button> <!--ng-click="adminLogin()"-->
 	    <p>&nbsp;</p>

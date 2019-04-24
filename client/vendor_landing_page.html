@@ -31,6 +31,7 @@
                 <td width="300">{{item.name}}</td>
 		<td width="300">{{item.vendor}}</td>
                 <td>${{item.price}}</td>
+                <!--<td ng-click="deleteItem(y._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>--->
 		<td ng-show="item.vendor==username" ng-click="deleteItem($index, item._id)"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
 		<td ng-hide="item.vendor==username"></td>
               </tr>
@@ -40,11 +41,12 @@
             <h2>Add New Item</h2>
             Name: <input type="text" ng-model="newItem.name" /><br />
             Price: <input type="text" ng-model="newItem.price" /><br />
+          <!--Vendor: <input type="text" ng-model="newItem.vendor" /><br />-->
             <button class="btn btn-primary" ng-click="addItem()" id="itemAdd">Add Item</button>
           </form>
 	  <img ng-show="isLoggedIn" src = "default-profile-picture.png" alt = "Profile Picture" width= "125" height= "125" style="position:absolute; top:-350px; right:-650px"/>
 	  <form action='/../../ac'>
-	    <button class="button" style="display: inline; right: -590px; top: -233px; position:absolute; background-color:#3baff7" onClick = "openTab(event, 'My Account')">My 		    Account </button> 
+	    <button class="button" style="display: inline; right: -590px; top: -233px; position:absolute; background-color:Cornflowerblue" onClick = "openTab(event, 'My Account')">My 		    Account </button> 
 	  </form>
 	  <form action='/../../' ng-controller="UsersController">
 	    <button class="button" style="display: inline; right: -700px; top:-233px" onClick = "openTab(event, 'Sign Out')" ng-click="logout()" id="logout">Sign Out</button>

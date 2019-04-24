@@ -14,6 +14,7 @@ angular.module('items').controller('ItemsController', ['$scope', 'Items', 'Auth'
         $scope.isLoggedIn = !data.data.failure;
         $scope.username = data.data.username;
         $scope.email = data.data.email;
+        $scope.userId = data.data._id;
       });
     }
 

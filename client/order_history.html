@@ -30,6 +30,7 @@
                     <tr>
                         <th width>Date</th>
                         <th>Items</th>
+                        <th></th>
                     </tr>
                     <tr ng-repeat="order in accountOrders | filter: query" ng-click="showOrderDetails($index)">
                         <td width=>{{order.created_at | date}}</td>
@@ -42,11 +43,11 @@
         <p>&nbsp;</p>
         <div ng-controller="UsersController">
             <form action="/../../c">
-            <button ng-show="isLoggedIn" class="button" style="display: inline; right: 333px; top: 140px; position:absolute; background-color:#6cc3f9">Place order </button>
+            <button ng-show="isLoggedIn" class="button" style="display: inline; right: 333px; top: 140px; position:absolute; background-color:PaleGreen">Place order </button>
             </form>
             <img ng-show="isLoggedIn" src = "default-profile-picture.png" alt = "Profile Picture" width= "125" height= "125" style="position:absolute; top:20px; right:202px"/>
             <form action='/../../ac'>
-                <button ng-show="isLoggedIn" class="button" style="display: inline; right: 200px; top: 140px; position:absolute; background-color:#3baff7"
+                <button ng-show="isLoggedIn" class="button" style="display: inline; right: 200px; top: 140px; position:absolute; background-color:Cornflowerblue"
                         onClick = "openTab(event, 'My Account')">My Account </button>
             </form>
             <form action='/../../'>
