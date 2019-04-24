@@ -24,8 +24,8 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$w
                 $scope.isLoggedIn=!data.data.failure;
                 $scope.username=data.data.username;
                 $scope.email=data.data.email;
-                $scope._id = 1;
 			    $scope.userType=data.data.userType;
+				$scope._id=data.data._id;
             });
         }
 
@@ -62,18 +62,18 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$w
         var check2=$scope.pw2;
 	    if(check===check2){
 		var user = {
-            username: $scope.username,
-            email: $scope.email,
-            pw: $scope.pw,
+            username: $scope.change.username,
+            email: $scope.change.email,
+            pw: $scope.change.pw,
 			//pw2: $scope.pw2,
-		userType: $scope.userType,
+			userType: $scope.userType,
 		//if (userType == 'customer') {
-		    creditCardName: $scope.creditCardName,
+		    /*creditCardName: $scope.creditCardName,
   		    creditCardNumber: $scope.creditCardNumber,
   		    creditCardExpYear: '2020',
   	        creditCardExpMonth: $scope.creditCardExpMonth,
   	        creditCardSecurityNum: $scope.creditCardSecurityNum,
-  		    creditCardType: $scope.creditCardType
+  		    creditCardType: $scope.creditCardType*/
 		//}
                 };
 				console.log(user);
@@ -86,8 +86,7 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$w
 
 	    }
 	    
-    };
-
+	};
 
         $scope.addVendor = function() {
             var check=$scope.newUser.password;
@@ -179,13 +178,13 @@ angular.module('users').controller('UsersController', ['$scope', '$timeout', '$w
                 if(data.data.success){
                     app.loading=false;
                     app.successMsg= data.data.message +'...Redirecting';
-                    $scope.loginFailed = true;
 
 
                     $timeout(function(){
                         $window.location.href='/c';
                     }, 2000);
-                } else 
+                }
+                else
                 {
                     $scope.loginFailed = false;
                 }
